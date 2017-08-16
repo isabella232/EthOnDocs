@@ -5,7 +5,7 @@ EthOnDocs
 
 EthOnDocs is based on [Ontodocs](https://github.com/lambdamusic/Ontodocs), a Python command line application aimed at facilitating the creation of documentation for ontologies encoded in RDF/OWL.
 
-It is used to auto-generate the EthOn specification.
+It is used to auto-generate the [EthOn](https://github.com/ConsenSys/EthOn) specification.
 
 Usage
 ------------
