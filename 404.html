@@ -20,7 +20,7 @@
 	else if (pathname[1] == currentVersion.toString()) {
 	    window.location.replace(spec_url+"index.html");
 	}
-	else if (pathname.length == 3 && (!pathname[1].startsWith("prop-") && !pathname[1].startsWith("class-")){
+	else if (pathname.length == 3 && !pathname[1].startsWith("prop-") && !pathname[1].startsWith("class-")){
 	    if (pathname[2] == "") {
 		window.location.replace(spec_url+pathname[2]+"/index.html");
 	    }
