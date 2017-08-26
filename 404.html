@@ -28,10 +28,10 @@
 		window.location.replace(spec_url+pathname[2]+"/index.html");
 	    }
 	    else if (/^[A-Z]/.test(pathname[2])) {
-		window.location.replace(spec_url + pathname[2]+'/class-'+pathname[1].toLowerCase() + '.html');
+		window.location.replace(spec_url + pathname[1]+'/class-'+pathname[1].toLowerCase() + '.html');
 	    }
 	    else if (/^[a-z]/.test(pathname[2])){
-		window.location.replace(spec_url + pathname[2]+'/prop-'+pathname[1].toLowerCase() + '.html');
+		window.location.replace(spec_url + pathname[1]+'/prop-'+pathname[1].toLowerCase() + '.html');
 	    }
 	}
 	else if (!pathname[1].startsWith("prop-") && !pathname[1].startsWith("class-")){
