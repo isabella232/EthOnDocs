@@ -14,7 +14,7 @@
         console.log(pathname);
         var currentVersion = 0;
 	    // Check if an unknownn property or class URI was used
-	if (!pathname[1].startsWith("prop-") || !pathname[1].startsWith("class-")){
+	if (!pathname[1].startsWith("prop-") && !pathname[1].startsWith("class-")){
 		if (pathname[1] == "") {
 		    window.location.replace(spec_url+"index.html");
 		}
