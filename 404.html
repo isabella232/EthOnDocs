@@ -13,48 +13,52 @@
         var pathname = window.location.pathname.split('/');
         console.log(pathname);
         var currentVersion = 0;
-        if (pathname[1] == "") {
-            window.location.replace(spec_url+"index.html");
-        }
-        else if (pathname[1] == currentVersion.toString()) {
-            window.location.replace(spec_url+"index.html");
-        }
-        else if (pathname.length == 3 && pathname[1] == "ERC20") {
-            spec_url = 'http://ethon.consensys.net/ERC20/EthOn_ERC20_spec.html';
-            if (pathname[2] == "") {
-                window.location.replace(spec_url);
-            }
-            else if (pathname[1] == currentVersion.toString()) {
-                window.location.replace(spec_url);
-            }
-            else if (/^[A-Z]/.test(pathname[2])) {
-                window.location.replace(spec_url + '#class-' + pathname[2].toLowerCase());
-            }
-            else if (/^[a-z]/.test(pathname[2])){
-                window.location.replace(spec_url + '#prop-' + pathname[2].toLowerCase());
-            }
-        }
-        else if (pathname.length == 3 && pathname[1] == "Contracts") {
-            spec_url = 'http://ethon.consensys.net/Contracts/EthOn_Contracts_spec.html';
-            if (pathname[2] == "") {
-                window.location.replace(spec_url);
-            }
-            else if (pathname[1] == currentVersion.toString()) {
-                window.location.replace(spec_url);
-            }
-            else if (/^[A-Z]/.test(pathname[2])) {
-                window.location.replace(spec_url + '#class-' + pathname[2].toLowerCase());
-            }
-            else if (/^[a-z]/.test(pathname[2])){
-                window.location.replace(spec_url + '#prop-' + pathname[2].toLowerCase());
-            }
-        }
-        else if (pathname.length == 2 && /^[A-Z]/.test(pathname[1])) {
-            window.location.replace(spec_url + 'class-'+pathname[1].toLowerCase() + '.html');
-        }
-        else if (pathname.length == 2 && /^[a-z]/.test(pathname[1])){
-            window.location.replace(spec_url + 'prop-'+pathname[1].toLowerCase() + '.html');
-        }
+	    // Check if an unknownn property or class URI was used
+	if (!pathname[1].startsWith("prop-") || (!pathname[1].startsWith("class-"){
+		if (pathname[1] == "") {
+		    window.location.replace(spec_url+"index.html");
+		}
+		else if (pathname[1] == currentVersion.toString()) {
+		    window.location.replace(spec_url+"index.html");
+		}
+		else if (pathname.length == 3 && pathname[1] == "ERC20") {
+		    spec_url = 'http://ethon.consensys.net/ERC20/EthOn_ERC20_spec.html';
+		    if (pathname[2] == "") {
+			window.location.replace(spec_url);
+		    }
+		    else if (pathname[1] == currentVersion.toString()) {
+			window.location.replace(spec_url);
+		    }
+		    else if (/^[A-Z]/.test(pathname[2])) {
+			window.location.replace(spec_url + '#class-' + pathname[2].toLowerCase());
+		    }
+		    else if (/^[a-z]/.test(pathname[2])){
+			window.location.replace(spec_url + '#prop-' + pathname[2].toLowerCase());
+		    }
+		}
+		else if (pathname.length == 3 && pathname[1] == "Contracts") {
+		    spec_url = 'http://ethon.consensys.net/Contracts/EthOn_Contracts_spec.html';
+		    if (pathname[2] == "") {
+			window.location.replace(spec_url);
+		    }
+		    else if (pathname[1] == currentVersion.toString()) {
+			window.location.replace(spec_url);
+		    }
+		    else if (/^[A-Z]/.test(pathname[2])) {
+			window.location.replace(spec_url + '#class-' + pathname[2].toLowerCase());
+		    }
+		    else if (/^[a-z]/.test(pathname[2])){
+			window.location.replace(spec_url + '#prop-' + pathname[2].toLowerCase());
+		    }
+		}
+		else if (pathname.length == 2 && /^[A-Z]/.test(pathname[1])) {
+		    window.location.replace(spec_url + 'class-'+pathname[1].toLowerCase() + '.html');
+		}
+		else if (pathname.length == 2 && /^[a-z]/.test(pathname[1])){
+		    window.location.replace(spec_url + 'prop-'+pathname[1].toLowerCase() + '.html');
+		}				
+	}
+        
     </script>
 	<div class="cover">
 		<h1>Resource not found <small>Error 404</+small></h1>
