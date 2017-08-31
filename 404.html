@@ -14,7 +14,7 @@
         console.log(pathname);
         var currentVersion = 0;
 	    
-	if (pathname[1] == "") {
+	if (pathname[1] == "" || pathname[1] == "EthOn_spec.html") {
 	    window.location.replace(spec_url+"index.html");
 	}
 	else if (pathname[1] == currentVersion.toString()) {
