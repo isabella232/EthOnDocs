@@ -12,6 +12,8 @@ class SpecGenerator():
 
         # load current ontology from EthOn github
         g = ontospy.Ontospy(RDFpath)
+        if g.properties.__len__() == 0:
+            exit(1)
 
         # invoke EthOn multi-HTML page visualizer
         v = KompleteViz(g, onto_title, "paper", onto_text)
