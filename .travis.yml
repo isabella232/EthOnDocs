@@ -12,3 +12,4 @@ deploy:
   local_dir: "${TRAVIS_BUILD_DIR}/spec"
   on:
     branch: master
+
