@@ -12,20 +12,20 @@
         var spec_url = 'http://ethon.consensys.net/';
         var pathname = window.location.pathname.split('/');
         console.log(pathname);
-        var currentVersion = 0;
+        var currentVersion = "v0";
 	    
 	if (pathname[1] == "" || pathname[1] == "EthOn_spec.html") {
 	    window.location.replace(spec_url+"index.html");
 	}
-	else if (pathname[1] == currentVersion.toString()) {
+	else if (pathname[1] == currentVersion) {
 	    window.location.replace(spec_url+"index.html");
 	}
 	else if (pathname.length == 3 && !pathname[2].startsWith("prop-") && !pathname[2].startsWith("class-")){
 	    if (pathname[2] == "") {
 		window.location.replace(spec_url+pathname[2]+"/index.html");
 	    }
-	    else if (pathname[2] == currentVersion.toString()) {
-		window.location.replace(spec_url+pathname[2]+"/index.html");
+	    else if (pathname[2] == currentVersion) {
+		window.location.replace(spec_url+pathname[1]+"/index.html");
 	    }
 	    else if (/^[A-Z]/.test(pathname[2])) {
 		window.location.replace(spec_url + pathname[1]+'/class-'+pathname[2].toLowerCase() + '.html');
