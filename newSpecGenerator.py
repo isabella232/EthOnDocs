@@ -23,7 +23,7 @@ class SpecGenerator():
         
         # serialize ontology
         g.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.ttl', format='turtle')
-        g.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.rdf', format='xml')
+        g.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.xml', format='xml')
         g.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.nt', format='nt')
 
 def main():
