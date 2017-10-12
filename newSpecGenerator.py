@@ -23,9 +23,9 @@ class SpecGenerator():
         
         # serialize ontology
         if '/' in outputPath:
-            destination_prefix = outputPath+'/Ethon_'+outputPath.split('/')[-1]
+            destination_prefix = outputPath+'/EthOn_'+outputPath.split('/')[-1]
         else:
-            destination_prefix = outputPath+'/Ethon'
+            destination_prefix = outputPath+'/EthOn'
 
         g.rdfgraph.serialize(destination=destination_prefix+'.ttl', format='turtle')
         g.rdfgraph.serialize(destination=destination_prefix+'.xml', format='xml')
