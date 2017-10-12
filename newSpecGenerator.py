@@ -20,6 +20,11 @@ class SpecGenerator():
 
         # build HTML
         v.build(outputPath)
+        
+        # serialize ontology
+        g.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.ttl', format='turtle'))
+        g.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.rdf', format='xml'))
+        g.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.nt', format='nt'))
 
 def main():
     text = "The EthOn Ethereum ontology, described using W3C RDF Schema and the Web Ontology Language. It is closely aligned with Gavin Wood's Ethereum yellow paper."
