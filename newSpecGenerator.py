@@ -22,9 +22,14 @@ class SpecGenerator():
         v.build(outputPath)
         
         # serialize ontology
-        g.rdfgraph.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.ttl', format='turtle')
-        g.rdfgraph.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.xml', format='xml')
-        g.rdfgraph.serialize(destination=outputPath+'/Ethon_'+outputPath.split('/')[-1]+'.nt', format='nt')
+        if '/' in outputPath:
+            destination_prefix = outputPath+'/Ethon_'+outputPath.split('/')[-1]
+        else:
+            destination_prefix = outputPath+'/Ethon'
+
+        g.rdfgraph.serialize(destination=destination_prefix+'.ttl', format='turtle')
+        g.rdfgraph.serialize(destination=destination_prefix+'.xml', format='xml')
+        g.rdfgraph.serialize(destination=destination_prefix+'.nt', format='nt')
 
 def main():
     text = "The EthOn Ethereum ontology, described using W3C RDF Schema and the Web Ontology Language. It is closely aligned with Gavin Wood's Ethereum yellow paper."
