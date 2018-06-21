@@ -16,7 +16,8 @@ class SpecGenerator():
         #    exit(1)
 
         # invoke EthOn multi-HTML page visualizer
-        v = KompleteViz(g, onto_title, "paper", onto_text)
+        #v = KompleteViz(g, onto_title, "paper", onto_text)
+        v = KompleteViz(g, onto_title, "paper")
 
         # build HTML
         v.build(outputPath)
