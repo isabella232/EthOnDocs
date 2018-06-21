@@ -176,7 +176,7 @@ class VizFactory(object):
         # printDebug(str(self.ontospy_graph.toplayer))
         topclasses = self.ontospy_graph.toplayer_classes[:]
         if len(topclasses) < 3: # massage the toplayer!
-            for topclass in self.ontospy_graph.toplayer:
+            for topclass in self.ontospy_graph.toplayer_classes:
                 for child in topclass.children():
                     if child not in topclasses: topclasses.append(child)
 
