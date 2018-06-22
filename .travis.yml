@@ -12,7 +12,6 @@ deploy:
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   target_branch: gh-pages
   fqdn: ethon.consensys.net
-  local_dir: "${TRAVIS_BUILD_DIR}/spec"
   on:
     branch: master
 
