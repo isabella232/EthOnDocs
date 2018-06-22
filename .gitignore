@@ -102,12 +102,8 @@ ENV/
 # mac stuff
 .DS_STORE
 
-<<<<<<< HEAD
 .idea
 
 # EthOn HTML build
 spec
-=======
 # IDEs
-.vscode
->>>>>>> 0c5d8d451a24bf2224e8503130258a324c832dc6
