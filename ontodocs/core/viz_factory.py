@@ -81,8 +81,8 @@ class VizFactory(object):
 
     def infer_best_title(self):
         """Selects something usable as a title for an ontospy graph"""
-        if self.ontospy_graph.ontologies:
-            return self.ontospy_graph.ontologies[0].uri
+        if self.ontospy_graph.all_ontologies:
+            return self.ontospy_graph.all_ontologies[0].uri
         elif self.ontospy_graph.sources:
             return self.ontospy_graph.sources[0]
         else:
@@ -172,8 +172,15 @@ class VizFactory(object):
 
 
     def _build_basic_context(self):
+<<<<<<< HEAD
         """util to return a standard dict used in django as a template context"""
         # printDebug(str(self.ontospy_graph.toplayer))
+=======
+        """
+        Return a standard dict used in django as a template context
+        """
+        # printDebug(str(self.ontospy_graph.toplayer_classes))
+>>>>>>> 0c5d8d451a24bf2224e8503130258a324c832dc6
         topclasses = self.ontospy_graph.toplayer_classes[:]
         if len(topclasses) < 3: # massage the toplayer!
             for topclass in self.ontospy_graph.toplayer_classes:
