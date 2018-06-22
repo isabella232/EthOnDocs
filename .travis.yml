@@ -1,7 +1,8 @@
 language: python
 python:
   - "2.7"
-install: "pip install -U git+https://github.com/ConsenSys/EthOnDocs.git"
+# install: "pip install -U git+https://github.com/ConsenSys/EthOnDocs.git"
+install: "pip install -U ontodocs"
 script: 
   - "python newSpecGenerator.py"
   - "cp 404.html ${TRAVIS_BUILD_DIR}/spec"
