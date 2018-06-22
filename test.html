@@ -1,0 +1,607 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css"/>
+
+    <style type="text/css">
+        #mynetwork {
+            width: 100%;
+            height: 100%;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+
+    // create an array with nodes
+    var nodes = new vis.DataSet([
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/Account",
+            "label": ":Account"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/AccountConcept",
+            "label": ":AccountConcept"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/AccountState",
+            "label": ":AccountState"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/AccountStorage",
+            "label": ":AccountStorage"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/Block",
+            "label": ":Block"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/BlockConcept",
+            "label": ":BlockConcept"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/Blockchain",
+            "label": ":Blockchain"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/CallContractMsg",
+            "label": ":CallContractMsg"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/CallTx",
+            "label": ":CallTx"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ContractAccount",
+            "label": ":ContractAccount"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ContractMsg",
+            "label": ":ContractMsg"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/CreateContractMsg",
+            "label": ":CreateContractMsg"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/CreateTx",
+            "label": ":CreateTx"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/EthOnConcept",
+            "label": ":EthOnConcept"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ExternalAccount",
+            "label": ":ExternalAccount"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ExternalActor",
+            "label": ":ExternalActor"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/FullNode",
+            "label": ":FullNode"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/GenesisBlock",
+            "label": ":GenesisBlock"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/LightNode",
+            "label": ":LightNode"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/LogEntry",
+            "label": ":LogEntry"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/LogTopic",
+            "label": ":LogTopic"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/MessageConcept",
+            "label": ":MessageConcept"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ModifiedMerklePatriciaTree",
+            "label": ":ModifiedMerklePatriciaTree"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/Msg",
+            "label": ":Msg"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/Network",
+            "label": ":Network"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/NetworkConcept",
+            "label": ":NetworkConcept"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/Node",
+            "label": ":Node"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/PostBlockState",
+            "label": ":PostBlockState"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/PostMsgState",
+            "label": ":PostMsgState"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/PostTxState",
+            "label": ":PostTxState"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ProtocolAccount",
+            "label": ":ProtocolAccount"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ProtocolState",
+            "label": ":ProtocolState"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ProtocolVariant",
+            "label": ":ProtocolVariant"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ReceiptsTrie",
+            "label": ":ReceiptsTrie"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/SelfdestructContractMsg",
+            "label": ":SelfdestructContractMsg"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/State",
+            "label": ":State"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/StateConcept",
+            "label": ":StateConcept"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/StateTransition",
+            "label": ":StateTransition"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/Tx",
+            "label": ":Tx"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/TxReceipt",
+            "label": ":TxReceipt"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/TxTrie",
+            "label": ":TxTrie"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/Uncle",
+            "label": ":Uncle"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ValueContractMsg",
+            "label": ":ValueContractMsg"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/ValueTx",
+            "label": ":ValueTx"
+        },
+        {
+            "group": "class",
+            "id": "http://ethon.consensys.net/WorldState",
+            "label": ":WorldState"
+        },
+        {
+            "group": "class",
+            "id": "http://xmlns.com/foaf/0.1/Agent",
+            "label": "http://xmlns.com/foaf/0.1/Agent"
+        }
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {
+            "from": "http://ethon.consensys.net/Account",
+            "to": "http://ethon.consensys.net/ContractAccount",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Account",
+            "to": "http://ethon.consensys.net/ExternalAccount",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Account",
+            "to": "http://ethon.consensys.net/ProtocolAccount",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/AccountConcept",
+            "to": "http://ethon.consensys.net/Account",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/AccountConcept",
+            "to": "http://ethon.consensys.net/AccountState",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/AccountConcept",
+            "to": "http://ethon.consensys.net/AccountStorage",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/AccountConcept",
+            "to": "http://ethon.consensys.net/ExternalActor",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/AccountState",
+            "to": "http://ethon.consensys.net/ProtocolState",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Block",
+            "to": "http://ethon.consensys.net/GenesisBlock",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/BlockConcept",
+            "to": "http://ethon.consensys.net/Block",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/BlockConcept",
+            "to": "http://ethon.consensys.net/ReceiptsTrie",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/BlockConcept",
+            "to": "http://ethon.consensys.net/TxTrie",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/BlockConcept",
+            "to": "http://ethon.consensys.net/Uncle",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/ContractMsg",
+            "to": "http://ethon.consensys.net/CallContractMsg",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/ContractMsg",
+            "to": "http://ethon.consensys.net/CreateContractMsg",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/ContractMsg",
+            "to": "http://ethon.consensys.net/SelfdestructContractMsg",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/ContractMsg",
+            "to": "http://ethon.consensys.net/ValueContractMsg",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/EthOnConcept",
+            "to": "http://ethon.consensys.net/AccountConcept",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/EthOnConcept",
+            "to": "http://ethon.consensys.net/BlockConcept",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/EthOnConcept",
+            "to": "http://ethon.consensys.net/MessageConcept",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/EthOnConcept",
+            "to": "http://ethon.consensys.net/ModifiedMerklePatriciaTree",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/EthOnConcept",
+            "to": "http://ethon.consensys.net/NetworkConcept",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/EthOnConcept",
+            "to": "http://ethon.consensys.net/StateConcept",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/MessageConcept",
+            "to": "http://ethon.consensys.net/LogEntry",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/MessageConcept",
+            "to": "http://ethon.consensys.net/LogTopic",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/MessageConcept",
+            "to": "http://ethon.consensys.net/Msg",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/MessageConcept",
+            "to": "http://ethon.consensys.net/ReceiptsTrie",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/MessageConcept",
+            "to": "http://ethon.consensys.net/TxReceipt",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/MessageConcept",
+            "to": "http://ethon.consensys.net/TxTrie",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/ModifiedMerklePatriciaTree",
+            "to": "http://ethon.consensys.net/AccountStorage",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/ModifiedMerklePatriciaTree",
+            "to": "http://ethon.consensys.net/ReceiptsTrie",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/ModifiedMerklePatriciaTree",
+            "to": "http://ethon.consensys.net/TxTrie",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/ModifiedMerklePatriciaTree",
+            "to": "http://ethon.consensys.net/WorldState",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Msg",
+            "to": "http://ethon.consensys.net/ContractMsg",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Msg",
+            "to": "http://ethon.consensys.net/Tx",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/NetworkConcept",
+            "to": "http://ethon.consensys.net/Blockchain",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/NetworkConcept",
+            "to": "http://ethon.consensys.net/Network",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/NetworkConcept",
+            "to": "http://ethon.consensys.net/Node",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/NetworkConcept",
+            "to": "http://ethon.consensys.net/ProtocolVariant",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Node",
+            "to": "http://ethon.consensys.net/FullNode",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Node",
+            "to": "http://ethon.consensys.net/LightNode",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/PostMsgState",
+            "to": "http://ethon.consensys.net/PostTxState",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/PostTxState",
+            "to": "http://ethon.consensys.net/PostBlockState",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/State",
+            "to": "http://ethon.consensys.net/AccountState",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/State",
+            "to": "http://ethon.consensys.net/WorldState",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/StateConcept",
+            "to": "http://ethon.consensys.net/State",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/StateConcept",
+            "to": "http://ethon.consensys.net/StateTransition",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/StateTransition",
+            "to": "http://ethon.consensys.net/Block",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/StateTransition",
+            "to": "http://ethon.consensys.net/Msg",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Tx",
+            "to": "http://ethon.consensys.net/CallTx",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Tx",
+            "to": "http://ethon.consensys.net/CreateTx",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/Tx",
+            "to": "http://ethon.consensys.net/ValueTx",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://ethon.consensys.net/WorldState",
+            "to": "http://ethon.consensys.net/PostMsgState",
+            "label": "Subclass Of"
+        },
+        {
+            "from": "http://xmlns.com/foaf/0.1/Agent",
+            "to": "http://ethon.consensys.net/ExternalActor",
+            "label": "Subclass Of"
+        }
+    ]);
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    const options = {
+        width: "100%",
+        height: "100%",
+        layout: {
+            hierarchical: {
+                enabled: true,
+                levelSeparation: 450,
+                nodeSpacing: 200,
+                treeSpacing: 300,
+                blockShifting: true,
+                edgeMinimization: true,
+                parentCentralization: true,
+                direction: 'LR',        // UD, DU, LR, RL
+                sortMethod: 'directed'   // hubsize, directed
+            }
+        },
+        groups: {
+            "class": {
+                color: {
+                    background: "#acf"
+                }
+            }
+        },
+        edges: {
+            label: "Subclass of",
+            color: {
+                color: "#000",
+                highlight: "#000"
+            },
+            font: {
+                size: 10,
+                face: 'arial',
+                align: 'bottom',
+                color: "#000",
+                background: "#acf",
+                strokeWidth: 0
+            },
+            arrows: {
+                from: true
+            }
+        },
+        nodes: {
+            widthConstraint: 70,
+            heightConstraint: 70,
+            title: "test title",
+            shape: 'circle',
+            color: {
+                border: '#000',
+                background: '#fff',
+                highlight: {
+                    border: '#000'
+                },
+                hover: {
+                    border: '#000',
+                }
+            },
+            borderWidth: 1,
+            borderWidthSelected: 20,
+            font: {
+                multi: 'md',
+                size: 12,
+                face: 'arial',
+                align: 'center'
+            }
+        }
+    };
+
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+</script>
+</body>
+</html>
