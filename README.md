@@ -13,7 +13,6 @@ EthOnDocs
 
 - [Schema.org](http://www.michelepasin.org/support/ontospy-examples/schema_org_topbraidttl/index.html) documentation.
 - [FOAF](http://www.michelepasin.org/support/ontospy-examples/foafrdf/index.html) documentation.
->>>>>>> 0c5d8d451a24bf2224e8503130258a324c832dc6
 
 EthOnDocs is based on [Ontodocs](https://github.com/lambdamusic/Ontodocs), a Python command line application aimed at facilitating the creation of documentation for ontologies encoded in RDF/OWL.
 
