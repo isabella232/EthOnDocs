@@ -172,21 +172,10 @@ class VizFactory(object):
 
 
     def _build_basic_context(self):
-<<<<<<< HEAD
-<<<<<<< HEAD
-        """util to return a standard dict used in django as a template context"""
-        # printDebug(str(self.ontospy_graph.toplayer))
-=======
-=======
->>>>>>> lambdamusic-master
         """
         Return a standard dict used in django as a template context
         """
         # printDebug(str(self.ontospy_graph.toplayer_classes))
-<<<<<<< HEAD
->>>>>>> 0c5d8d451a24bf2224e8503130258a324c832dc6
-=======
->>>>>>> lambdamusic-master
         topclasses = self.ontospy_graph.toplayer_classes[:]
         if len(topclasses) < 3: # massage the toplayer!
             for topclass in self.ontospy_graph.toplayer_classes:
