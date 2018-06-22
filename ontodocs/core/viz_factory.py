@@ -81,8 +81,8 @@ class VizFactory(object):
 
     def infer_best_title(self):
         """Selects something usable as a title for an ontospy graph"""
-        if self.ontospy_graph.ontologies:
-            return self.ontospy_graph.ontologies[0].uri
+        if self.ontospy_graph.all_ontologies:
+            return self.ontospy_graph.all_ontologies[0].uri
         elif self.ontospy_graph.sources:
             return self.ontospy_graph.sources[0]
         else:
@@ -172,11 +172,13 @@ class VizFactory(object):
 
 
     def _build_basic_context(self):
-        """util to return a standard dict used in django as a template context"""
-        # printDebug(str(self.ontospy_graph.toplayer))
-        topclasses = self.ontospy_graph.toplayer[:]
+        """
+        Return a standard dict used in django as a template context
+        """
+        # printDebug(str(self.ontospy_graph.toplayer_classes))
+        topclasses = self.ontospy_graph.toplayer_classes[:]
         if len(topclasses) < 3: # massage the toplayer!
-            for topclass in self.ontospy_graph.toplayer:
+            for topclass in self.ontospy_graph.toplayer_classes:
                 for child in topclass.children():
                     if child not in topclasses: topclasses.append(child)
 
@@ -187,18 +189,19 @@ class VizFactory(object):
             "STATIC_URL": self.static_url,
             "ontodocs_version": VERSION,
             "ontospy_graph": self.ontospy_graph,
+            "topclasses": topclasses,
             "docs_title": self.title,
             "docs_text": self.text,
             "namespaces": self.ontospy_graph.namespaces,
             "stats": self.ontospy_graph.stats(),
-            "ontologies": self.ontospy_graph.ontologies,
             "sources": self.ontospy_graph.sources,
-            "classes": self.ontospy_graph.classes,
-            "topclasses": topclasses,
-            "objproperties": self.ontospy_graph.objectProperties,
-            "dataproperties": self.ontospy_graph.datatypeProperties,
-            "annotationproperties": self.ontospy_graph.annotationProperties,
-            "skosConcepts": self.ontospy_graph.skosConcepts,
+            "ontologies": self.ontospy_graph.all_ontologies,
+            "classes": self.ontospy_graph.all_classes,
+            "properties": self.ontospy_graph.all_properties,
+            "objproperties": self.ontospy_graph.all_properties_object,
+            "dataproperties": self.ontospy_graph.all_properties_datatype,
+            "annotationproperties": self.ontospy_graph.all_properties_annotation,
+            "skosConcepts": self.ontospy_graph.all_skos_concepts,
             "instances": []
         }
 
@@ -232,7 +235,7 @@ class VizFactory(object):
         using Pygments CSS
         """
         try:
-            pygments_code = highlight(ontospy_entity.serialize(), TurtleLexer(), HtmlFormatter())
+            pygments_code = highlight(ontospy_entity.rdf_source(), TurtleLexer(), HtmlFormatter())
             pygments_code_css = HtmlFormatter().get_style_defs('.highlight')
             return {"pygments_code": pygments_code,
                     "pygments_code_css": pygments_code_css
