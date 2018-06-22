@@ -8,9 +8,9 @@ script:
   - "touch ${TRAVIS_BUILD_DIR}/spec/.nojekyll"
 deploy:
   provider: pages
-  skip_cleanup: true
+  skip-cleanup: true
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
-  local_dir: "${TRAVIS_BUILD_DIR}"
+  local_dir: "${TRAVIS_BUILD_DIR}/spec"
   target_branch: gh-pages
   fqdn: ethon.consensys.net
   on:
