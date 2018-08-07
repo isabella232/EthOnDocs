@@ -210,11 +210,18 @@
                     {% for k,v in group.items  %}
 
                     {% if v %}
-
-                        <tr class="table-inheritanceinfo">
-                            <th colspan="4" class="treeinfo"><span class="label label-default">From class <a title="{{k.qname}}" href="{{k.slug}}.html" class="fromclass_link">{{k.qname}}</a></span>
-                            </th>
-                        </tr>
+                        
+                        {% if k.slug != "class-owlthing" %}
+                            <tr class="table-inheritanceinfo">
+                                <th colspan="4" class="treeinfo"><span class="label label-default">From class <a title="{{k.qname}}" href="{{k.slug}}.html" class="fromclass_link">{{k.qname}}</a></span>
+                                </th>
+                            </tr>
+                        {% else %}
+                            <tr class="table-inheritanceinfo">
+                                <th colspan="4" class="treeinfo"><span class="label label-default">From class {{k.qname}}</span>
+                                </th>
+                            </tr>
+                        {% endif %}
 
                             {% for prop in v  %}
                             <tr>
