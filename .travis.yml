@@ -7,6 +7,7 @@ script:
   - "python newSpecGenerator.py"
   - "cp 404.html ${TRAVIS_BUILD_DIR}/spec"
   - "touch ${TRAVIS_BUILD_DIR}/spec/.nojekyll"
+  - "cp -r v0 ${TRAVIS_BUILD_DIR}/spec"
 deploy:
   provider: pages
   skip-cleanup: true
