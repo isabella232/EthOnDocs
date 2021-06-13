@@ -1,0 +1,1623 @@
+@prefix : <http://ethon.consensys.net/Contracts/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ethon: <http://ethon.consensys.net/> .
+@prefix ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+: a owl:Ontology ;
+    dc:creator "Johannes Pfeffer" ;
+    dc:title "EthOn Contracts - An extension to EthOn that models some aspects of smart contracts" ;
+    vann:preferredNamespacePrefix "contracts" ;
+    rdfs:comment "This ontology extends EthOn with concepts that can be used to model some aspects of smart contracts, including Functions, Events, Inputs, Outputs and Opcodes." ;
+    rdfs:seeAlso <https://github.com/ConsenSys/EthOn> ;
+    owl:imports <http://ethon.consensys.net/v0/> ;
+    owl:versionIRI <http://ethon.consensys.net/Contracts/v0/> ;
+    owl:versionInfo "0.0.1" ;
+    ns:term_status "unstable" .
+
+:DynamicFunction a owl:Class ;
+    rdfs:label "Dynamic Function"@en ;
+    ethon:suggestedStringRepresentation "DynamicFunction" ;
+    rdfs:comment "Dynamic Functions are Functions that potentially change the state of the blockchain when executed. Executing a dynamic function costs gas and is broadcast to the network. When a Dynamic Function is called, the resulting computation is carried out by every Full Node in the Network."@en ;
+    rdfs:subClassOf :Function ;
+    owl:disjointWith :StaticFunction ;
+    ns:term_status "unstable" .
+
+:Opcode_ADD a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "01"^^xsd:hexBinary ;
+    :name "ADD"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Addition operation."@en .
+
+:Opcode_ADDMOD a :Opcode,
+        owl:NamedIndividual ;
+    :cost 8 ;
+    :hexValue "08"^^xsd:hexBinary ;
+    :name "ADDMOD"^^xsd:string ;
+    :stackItemsAdded 3 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Modulo addition operation."@en .
+
+:Opcode_ADDRESS a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "30"^^xsd:hexBinary ;
+    :name "ADDRESS"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get address of currently executing account."@en .
+
+:Opcode_AND a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "16"^^xsd:hexBinary ;
+    :name "AND"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Bitwise AND operation."@en .
+
+:Opcode_BALANCE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 20 ;
+    :hexValue "31"^^xsd:hexBinary ;
+    :name "BALANCE"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get balance of the given account."@en .
+
+:Opcode_BLOCKHASH a :Opcode,
+        owl:NamedIndividual ;
+    :cost 20 ;
+    :hexValue "40"^^xsd:hexBinary ;
+    :name "BLOCKHASH"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get the hash of one of the 256 most recent complete blocks."@en .
+
+:Opcode_BYTE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "1a"^^xsd:hexBinary ;
+    :name "BYTE"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Retrieve single byte from word."@en .
+
+:Opcode_CALL a :Opcode,
+        owl:NamedIndividual ;
+    :cost 40 ;
+    :hexValue "f1"^^xsd:hexBinary ;
+    :name "CALL"^^xsd:string ;
+    :stackItemsAdded 7 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Message-call into an account."@en .
+
+:Opcode_CALLCODE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 40 ;
+    :hexValue "f2"^^xsd:hexBinary ;
+    :name "CALLCODE"^^xsd:string ;
+    :stackItemsAdded 7 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Message-call into this account with an alternative account's code."@en .
+
+:Opcode_CALLDATACOPY a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "37"^^xsd:hexBinary ;
+    :name "CALLDATACOPY"^^xsd:string ;
+    :stackItemsAdded 3 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Get size of code running in current environment."@en .
+
+:Opcode_CALLDATALOAD a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "35"^^xsd:hexBinary ;
+    :name "CALLDATALOAD"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get input data of current environment. This pertains to the input data passed with the message call instruction or transaction."@en .
+
+:Opcode_CALLDATASIZE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "36"^^xsd:hexBinary ;
+    :name "CALLDATASIZE"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get size of input data in current environment. This pertains to the input data passed with the message call instruction or transaction."@en .
+
+:Opcode_CALLER a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "33"^^xsd:hexBinary ;
+    :name "CALLER"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get caller address. This is the address of the account that is directly responsible for this execution."@en .
+
+:Opcode_CALLVALUE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "34"^^xsd:hexBinary ;
+    :name "CALLVALUE"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get deposited value by the instruction/transaction responsible for this execution."@en .
+
+:Opcode_CODECOPY a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "39"^^xsd:hexBinary ;
+    :name "CODECOPY"^^xsd:string ;
+    :stackItemsAdded 3 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Get price of gas in current environment. This is the gas price specified by the originating transaction."@en .
+
+:Opcode_CODESIZE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "38"^^xsd:hexBinary ;
+    :name "CODESIZE"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Copy code running in current environment to memory."@en .
+
+:Opcode_COINBASE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "41"^^xsd:hexBinary ;
+    :name "COINBASE"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get the block's beneficiary address."@en .
+
+:Opcode_CREATE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 32000 ;
+    :hexValue "f0"^^xsd:hexBinary ;
+    :name "CREATE"^^xsd:string ;
+    :stackItemsAdded 3 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Create a new account with associated code."@en .
+
+:Opcode_DELEGATECALL a :Opcode,
+        owl:NamedIndividual ;
+    :cost 40 ;
+    :hexValue "f4"^^xsd:hexBinary ;
+    :name "DELEGATECALL"^^xsd:string ;
+    :stackItemsAdded 6 ;
+    :stackItemsRemoved 1 ;
+    ns1:isRequiredBy ethon:ProtocolVariant_Homestead ;
+    rdfs:comment "Message-call into this account with an alternative account's code, but persisting the current values for sender and value."@en .
+
+:Opcode_DIFFICULTY a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "44"^^xsd:hexBinary ;
+    :name "DIFFICULTY"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get the block's difficulty."@en .
+
+:Opcode_DIV a :Opcode,
+        owl:NamedIndividual ;
+    :cost 5 ;
+    :hexValue "04"^^xsd:hexBinary ;
+    :name "DIV"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Integer division operation."@en .
+
+:Opcode_DUP1 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "80"^^xsd:hexBinary ;
+    :name "DUP1"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 2 ;
+    rdfs:comment "Duplicate 1st stack item."@en .
+
+:Opcode_DUP10 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "89"^^xsd:hexBinary ;
+    :name "DUP10"^^xsd:string ;
+    :stackItemsAdded 10 ;
+    :stackItemsRemoved 11 ;
+    rdfs:comment "Duplicate 10th stack item."@en .
+
+:Opcode_DUP11 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "8a"^^xsd:hexBinary ;
+    :name "DUP11"^^xsd:string ;
+    :stackItemsAdded 11 ;
+    :stackItemsRemoved 12 ;
+    rdfs:comment "Duplicate 11th stack item."@en .
+
+:Opcode_DUP12 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "8b"^^xsd:hexBinary ;
+    :name "DUP12"^^xsd:string ;
+    :stackItemsAdded 12 ;
+    :stackItemsRemoved 13 ;
+    rdfs:comment "Duplicate 12th stack item."@en .
+
+:Opcode_DUP13 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "8c"^^xsd:hexBinary ;
+    :name "DUP13"^^xsd:string ;
+    :stackItemsAdded 13 ;
+    :stackItemsRemoved 14 ;
+    rdfs:comment "Duplicate 13th stack item."@en .
+
+:Opcode_DUP14 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "8d"^^xsd:hexBinary ;
+    :name "DUP14"^^xsd:string ;
+    :stackItemsAdded 14 ;
+    :stackItemsRemoved 15 ;
+    rdfs:comment "Duplicate 14th stack item."@en .
+
+:Opcode_DUP15 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "8e"^^xsd:hexBinary ;
+    :name "DUP15"^^xsd:string ;
+    :stackItemsAdded 15 ;
+    :stackItemsRemoved 16 ;
+    rdfs:comment "Duplicate 15th stack item."@en .
+
+:Opcode_DUP16 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "8f"^^xsd:hexBinary ;
+    :name "DUP16"^^xsd:string ;
+    :stackItemsAdded 16 ;
+    :stackItemsRemoved 17 ;
+    rdfs:comment "Duplicate 16th stack item."@en .
+
+:Opcode_DUP2 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "81"^^xsd:hexBinary ;
+    :name "DUP2"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 3 ;
+    rdfs:comment "Duplicate 2nd stack item."@en .
+
+:Opcode_DUP3 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "82"^^xsd:hexBinary ;
+    :name "DUP3"^^xsd:string ;
+    :stackItemsAdded 3 ;
+    :stackItemsRemoved 4 ;
+    rdfs:comment "Duplicate 3rd stack item."@en .
+
+:Opcode_DUP4 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "83"^^xsd:hexBinary ;
+    :name "DUP4"^^xsd:string ;
+    :stackItemsAdded 4 ;
+    :stackItemsRemoved 5 ;
+    rdfs:comment "Duplicate 4th stack item."@en .
+
+:Opcode_DUP5 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "84"^^xsd:hexBinary ;
+    :name "DUP5"^^xsd:string ;
+    :stackItemsAdded 5 ;
+    :stackItemsRemoved 6 ;
+    rdfs:comment "Duplicate 5th stack item."@en .
+
+:Opcode_DUP6 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "85"^^xsd:hexBinary ;
+    :name "DUP6"^^xsd:string ;
+    :stackItemsAdded 6 ;
+    :stackItemsRemoved 7 ;
+    rdfs:comment "Duplicate 6th stack item."@en .
+
+:Opcode_DUP7 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "86"^^xsd:hexBinary ;
+    :name "DUP7"^^xsd:string ;
+    :stackItemsAdded 7 ;
+    :stackItemsRemoved 8 ;
+    rdfs:comment "Duplicate 7th stack item."@en .
+
+:Opcode_DUP8 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "87"^^xsd:hexBinary ;
+    :name "DUP8"^^xsd:string ;
+    :stackItemsAdded 8 ;
+    :stackItemsRemoved 9 ;
+    rdfs:comment "Duplicate 8th stack item."@en .
+
+:Opcode_DUP9 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "88"^^xsd:hexBinary ;
+    :name "DUP9"^^xsd:string ;
+    :stackItemsAdded 9 ;
+    :stackItemsRemoved 10 ;
+    rdfs:comment "Duplicate 9th stack item."@en .
+
+:Opcode_EQ a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "14"^^xsd:hexBinary ;
+    :name "EQ"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Equality comparison."@en .
+
+:Opcode_EXP a :Opcode,
+        owl:NamedIndividual ;
+    :cost 10 ;
+    :hexValue "0a"^^xsd:hexBinary ;
+    :name "EXP"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Exponential operation"@en .
+
+:Opcode_EXTCODECOPY a :Opcode,
+        owl:NamedIndividual ;
+    :cost 20 ;
+    :hexValue "3c"^^xsd:hexBinary ;
+    :name "EXTCODECOPY"^^xsd:string ;
+    :stackItemsAdded 4 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Copy an account's code to memory."@en .
+
+:Opcode_EXTCODESIZE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 20 ;
+    :hexValue "3b"^^xsd:hexBinary ;
+    :name "EXTCODESIZE"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get size of an account's code."@en .
+
+:Opcode_GAS a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "5a"^^xsd:hexBinary ;
+    :name "GAS"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get the amount of available gas, including the corresponding reduction for the cost of this instruction."@en .
+
+:Opcode_GASLIMIT a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "45"^^xsd:hexBinary ;
+    :name "GASLIMIT"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get the block's gas limit."@en .
+
+:Opcode_GASPRICE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "3a"^^xsd:hexBinary ;
+    :name "GASPRICE"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get price of gas in current environment."@en .
+
+:Opcode_GT a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "11"^^xsd:hexBinary ;
+    :name "GT"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Greater-than comparison."@en .
+
+:Opcode_ISZERO a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "15"^^xsd:hexBinary ;
+    :name "ISZERO"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Simple not operator."@en .
+
+:Opcode_JUMP a :Opcode,
+        owl:NamedIndividual ;
+    :cost 8 ;
+    :hexValue "56"^^xsd:hexBinary ;
+    :name "JUMP"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Alter the program counter."@en .
+
+:Opcode_JUMPDEST a :Opcode,
+        owl:NamedIndividual ;
+    :cost 1 ;
+    :hexValue "5b"^^xsd:hexBinary ;
+    :name "JUMPDEST"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Mark a valid destination for jumps. This operation has no effect on machine state during execution."@en .
+
+:Opcode_JUMPI a :Opcode,
+        owl:NamedIndividual ;
+    :cost 10 ;
+    :hexValue "57"^^xsd:hexBinary ;
+    :name "JUMPI"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Conditionally alter the program counter."@en .
+
+:Opcode_LOG0 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 375 ;
+    :hexValue "a0"^^xsd:hexBinary ;
+    :name "LOG0"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Append log record with no topics."@en .
+
+:Opcode_LOG1 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 750 ;
+    :hexValue "a1"^^xsd:hexBinary ;
+    :name "LOG1"^^xsd:string ;
+    :stackItemsAdded 3 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Append log record with one topic."@en .
+
+:Opcode_LOG2 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 1125 ;
+    :hexValue "a2"^^xsd:hexBinary ;
+    :name "LOG2"^^xsd:string ;
+    :stackItemsAdded 4 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Append log record with two topics."@en .
+
+:Opcode_LOG3 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 1500 ;
+    :hexValue "a3"^^xsd:hexBinary ;
+    :name "LOG3"^^xsd:string ;
+    :stackItemsAdded 5 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Append log record with three topics."@en .
+
+:Opcode_LOG4 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 1875 ;
+    :hexValue "a4"^^xsd:hexBinary ;
+    :name "LOG4"^^xsd:string ;
+    :stackItemsAdded 6 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Append log record with four topics."@en .
+
+:Opcode_LT a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "10"^^xsd:hexBinary ;
+    :name "LT"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Less-than comparison."@en .
+
+:Opcode_MLOAD a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "51"^^xsd:hexBinary ;
+    :name "MLOAD"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Load word from memory."@en .
+
+:Opcode_MOD a :Opcode,
+        owl:NamedIndividual ;
+    :cost 5 ;
+    :hexValue "06"^^xsd:hexBinary ;
+    :name "MOD"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Modulo remainder operation."@en .
+
+:Opcode_MSIZE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "59"^^xsd:hexBinary ;
+    :name "MSIZE"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get the size of active memory in bytes."@en .
+
+:Opcode_MSTORE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "52"^^xsd:hexBinary ;
+    :name "MSTORE"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Save word to memory."@en .
+
+:Opcode_MSTORES a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "53"^^xsd:hexBinary ;
+    :name "MSTORES"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Save byte to memory."@en .
+
+:Opcode_MUL a :Opcode,
+        owl:NamedIndividual ;
+    :cost 5 ;
+    :hexValue "02"^^xsd:hexBinary ;
+    :name "MUL"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Multiplication operation."@en .
+
+:Opcode_MULMOD a :Opcode,
+        owl:NamedIndividual ;
+    :cost 8 ;
+    :hexValue "09"^^xsd:hexBinary ;
+    :name "MULMOD"^^xsd:string ;
+    :stackItemsAdded 3 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Modulo multiplication operation."@en .
+
+:Opcode_NOT a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "19"^^xsd:hexBinary ;
+    :name "NOT"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Bitwise NOT operation."@en .
+
+:Opcode_NUMBER a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "43"^^xsd:hexBinary ;
+    :name "NUMBER"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get the block's number."@en .
+
+:Opcode_OR a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "17"^^xsd:hexBinary ;
+    :name "OR"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Bitwise OR operation."@en .
+
+:Opcode_ORIGIN a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "32"^^xsd:hexBinary ;
+    :name "ORIGIN"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get execution origination address. This is the sender of the original transaction; iti is never an account with non-empty associated code."@en .
+
+:Opcode_PC a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "58"^^xsd:hexBinary ;
+    :name "PC"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get the value of the program counter prior to the increment."@en .
+
+:Opcode_POP a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "50"^^xsd:hexBinary ;
+    :name "POP"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Remove item from stack"@en .
+
+:Opcode_PUSH1 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "60"^^xsd:hexBinary ;
+    :name "PUSH1"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 1 byte item on the stack."@en .
+
+:Opcode_PUSH10 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "69"^^xsd:hexBinary ;
+    :name "PUSH10"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 10 byte item on the stack."@en .
+
+:Opcode_PUSH11 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "6a"^^xsd:hexBinary ;
+    :name "PUSH11"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 11 byte item on the stack."@en .
+
+:Opcode_PUSH12 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "6b"^^xsd:hexBinary ;
+    :name "PUSH12"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 12 byte item on the stack."@en .
+
+:Opcode_PUSH13 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "6c"^^xsd:hexBinary ;
+    :name "PUSH13"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 13 byte item on the stack."@en .
+
+:Opcode_PUSH14 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "6d"^^xsd:hexBinary ;
+    :name "PUSH14"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 14 byte item on the stack."@en .
+
+:Opcode_PUSH15 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "6e"^^xsd:hexBinary ;
+    :name "PUSH15"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 15 byte item on the stack."@en .
+
+:Opcode_PUSH16 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "6f"^^xsd:hexBinary ;
+    :name "PUSH16"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 16 byte item on the stack."@en .
+
+:Opcode_PUSH17 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "70"^^xsd:hexBinary ;
+    :name "PUSH17"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 17 byte item on the stack."@en .
+
+:Opcode_PUSH18 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "71"^^xsd:hexBinary ;
+    :name "PUSH18"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 18 byte item on the stack."@en .
+
+:Opcode_PUSH19 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "72"^^xsd:hexBinary ;
+    :name "PUSH19"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 19 byte item on the stack."@en .
+
+:Opcode_PUSH2 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "61"^^xsd:hexBinary ;
+    :name "PUSH2"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 2 byte item on the stack."@en .
+
+:Opcode_PUSH20 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "73"^^xsd:hexBinary ;
+    :name "PUSH20"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 20 byte item on the stack."@en .
+
+:Opcode_PUSH21 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "74"^^xsd:hexBinary ;
+    :name "PUSH21"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 21 byte item on the stack."@en .
+
+:Opcode_PUSH22 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "75"^^xsd:hexBinary ;
+    :name "PUSH22"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 22 byte item on the stack."@en .
+
+:Opcode_PUSH23 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "76"^^xsd:hexBinary ;
+    :name "PUSH23"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 23 byte item on the stack."@en .
+
+:Opcode_PUSH24 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "77"^^xsd:hexBinary ;
+    :name "PUSH24"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 24 byte item on the stack."@en .
+
+:Opcode_PUSH25 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "78"^^xsd:hexBinary ;
+    :name "PUSH25"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 25 byte item on the stack."@en .
+
+:Opcode_PUSH26 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "79"^^xsd:hexBinary ;
+    :name "PUSH26"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 26 byte item on the stack."@en .
+
+:Opcode_PUSH27 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "7a"^^xsd:hexBinary ;
+    :name "PUSH27"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 27 byte item on the stack."@en .
+
+:Opcode_PUSH28 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "7b"^^xsd:hexBinary ;
+    :name "PUSH28"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 28 byte item on the stack."@en .
+
+:Opcode_PUSH29 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "7c"^^xsd:hexBinary ;
+    :name "PUSH29"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 29 byte item on the stack."@en .
+
+:Opcode_PUSH3 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "62"^^xsd:hexBinary ;
+    :name "PUSH3"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 3 byte item on the stack."@en .
+
+:Opcode_PUSH30 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "7d"^^xsd:hexBinary ;
+    :name "PUSH30"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 30 byte item on the stack."@en .
+
+:Opcode_PUSH31 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "7e"^^xsd:hexBinary ;
+    :name "PUSH31"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 31 byte item on the stack."@en .
+
+:Opcode_PUSH32 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "7f"^^xsd:hexBinary ;
+    :name "PUSH32"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 32 byte item on the stack."@en .
+
+:Opcode_PUSH4 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "63"^^xsd:hexBinary ;
+    :name "PUSH4"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 4 byte item on the stack."@en .
+
+:Opcode_PUSH5 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "64"^^xsd:hexBinary ;
+    :name "PUSH5"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 5 byte item on the stack."@en .
+
+:Opcode_PUSH6 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "65"^^xsd:hexBinary ;
+    :name "PUSH6"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 6 byte item on the stack."@en .
+
+:Opcode_PUSH7 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "66"^^xsd:hexBinary ;
+    :name "PUSH7"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 7 byte item on the stack."@en .
+
+:Opcode_PUSH8 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "67"^^xsd:hexBinary ;
+    :name "PUSH8"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 8 byte item on the stack."@en .
+
+:Opcode_PUSH9 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "68"^^xsd:hexBinary ;
+    :name "PUSH9"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Place 9 byte item on the stack."@en .
+
+:Opcode_RETURN a :Opcode,
+        owl:NamedIndividual ;
+    :cost 0 ;
+    :hexValue "f3"^^xsd:hexBinary ;
+    :name "RETURN"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Halt execution returning output data."@en .
+
+:Opcode_RETURNDATACOPY a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "3e"^^xsd:hexBinary ;
+    :name "RETURNDATACOPY"^^xsd:string ;
+    :stackItemsAdded 3 ;
+    :stackItemsRemoved 0 ;
+    ns1:isRequiredBy ethon:ProtocolVariant_Byzantium ;
+    rdfs:comment "This opcode has similar semantics to `CALLDATACOPY`, but instead of copying data from the call data, it copies data from the return data buffer. Furthermore, accessing the return data buffer beyond its size results in a failure, i.e. if `start + length` overflows or results in a value larger than `RETURNDATASIZE`, the current call stops in an out-of-gas condition. In particular, reading 0 bytes from the end of the buffer will read 0 bytes; reading 0 bytes from one-byte out of the buffer causes an exception."@en .
+
+:Opcode_RETURNDATASIZE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "3d"^^xsd:hexBinary ;
+    :name "RETURNDATASIZE"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    ns1:isRequiredBy ethon:ProtocolVariant_Byzantium ;
+    rdfs:comment "Pushes the size of the return data buffer onto the stack."@en .
+
+:Opcode_REVERT a :Opcode,
+        owl:NamedIndividual ;
+    :cost 0 ;
+    :hexValue "fd"^^xsd:hexBinary ;
+    :name "RETURN"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 0 ;
+    ns1:isRequiredBy ethon:ProtocolVariant_Byzantium ;
+    rdfs:comment "Throw an exception without consuming all gas."@en .
+
+:Opcode_SDIV a :Opcode,
+        owl:NamedIndividual ;
+    :cost 5 ;
+    :hexValue "05"^^xsd:hexBinary ;
+    :name "SDIV"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Signed integer division operstion (truncated)."@en .
+
+:Opcode_SGT a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "13"^^xsd:hexBinary ;
+    :name "SGT"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Signed greater-than comparison."@en .
+
+:Opcode_SHA3 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 30 ;
+    :hexValue "20"^^xsd:hexBinary ;
+    :name "SHA3"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Compute Keccak-256 hash"@en .
+
+:Opcode_SIGNEXTEND a :Opcode,
+        owl:NamedIndividual ;
+    :cost 5 ;
+    :hexValue "0b"^^xsd:hexBinary ;
+    :name "SIGNEXTEND"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Extend length of two's complement signed integer."@en .
+
+:Opcode_SLOAD a :Opcode,
+        owl:NamedIndividual ;
+    :cost 50 ;
+    :hexValue "54"^^xsd:hexBinary ;
+    :name "SLOAD"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Load word from storage."@en .
+
+:Opcode_SLT a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "12"^^xsd:hexBinary ;
+    :name "SLT"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Signed less-than comparison."@en .
+
+:Opcode_SMOD a :Opcode,
+        owl:NamedIndividual ;
+    :cost 5 ;
+    :hexValue "07"^^xsd:hexBinary ;
+    :name "SMOD"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Signed modulo remainder operation."@en .
+
+:Opcode_SSTORE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 0 ;
+    :hexValue "55"^^xsd:hexBinary ;
+    :name "SSTORE"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Save word to storage."@en .
+
+:Opcode_STATICCALL a :Opcode,
+        owl:NamedIndividual ;
+    :cost 40 ;
+    :hexValue "f4"^^xsd:hexBinary ;
+    :name "STATICCALL"^^xsd:string ;
+    :stackItemsAdded 6 ;
+    :stackItemsRemoved 1 ;
+    ns1:isRequiredBy ethon:ProtocolVariant_Byzantium ;
+    rdfs:comment "Non-state-changing call to another contract. Any modifications to the state during the call (and its subcalls, if present) are disallowed."@en .
+
+:Opcode_STOP a :Opcode,
+        owl:NamedIndividual ;
+    :cost 0 ;
+    :hexValue "00"^^xsd:hexBinary ;
+    :name "STOP"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Halts execution."@en .
+
+:Opcode_SUB a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "03"^^xsd:hexBinary ;
+    :name "SUB"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Substraction operation."@en .
+
+:Opcode_SUICIDE a :Opcode,
+        owl:NamedIndividual ;
+    :cost 0 ;
+    :hexValue "f5"^^xsd:hexBinary ;
+    :name "SUICIDE"^^xsd:string ;
+    :stackItemsAdded 1 ;
+    :stackItemsRemoved 0 ;
+    rdfs:comment "Halt execution and register account for later deletion."@en .
+
+:Opcode_SWAP1 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "90"^^xsd:hexBinary ;
+    :name "SWAP1"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 2 ;
+    rdfs:comment "Exchange 1st and 2nd stack items."@en .
+
+:Opcode_SWAP10 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "99"^^xsd:hexBinary ;
+    :name "SWAP10"^^xsd:string ;
+    :stackItemsAdded 11 ;
+    :stackItemsRemoved 11 ;
+    rdfs:comment "Exchange 1st and 11th stack items."@en .
+
+:Opcode_SWAP11 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "9a"^^xsd:hexBinary ;
+    :name "SWAP11"^^xsd:string ;
+    :stackItemsAdded 12 ;
+    :stackItemsRemoved 12 ;
+    rdfs:comment "Exchange 1st and 12th stack items."@en .
+
+:Opcode_SWAP12 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "9b"^^xsd:hexBinary ;
+    :name "SWAP12"^^xsd:string ;
+    :stackItemsAdded 13 ;
+    :stackItemsRemoved 13 ;
+    rdfs:comment "Exchange 1st and 13th stack items."@en .
+
+:Opcode_SWAP13 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "9c"^^xsd:hexBinary ;
+    :name "SWAP13"^^xsd:string ;
+    :stackItemsAdded 14 ;
+    :stackItemsRemoved 14 ;
+    rdfs:comment "Exchange 1st and 14th stack items."@en .
+
+:Opcode_SWAP14 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "9d"^^xsd:hexBinary ;
+    :name "SWAP14"^^xsd:string ;
+    :stackItemsAdded 15 ;
+    :stackItemsRemoved 15 ;
+    rdfs:comment "Exchange 1st and 15th stack items."@en .
+
+:Opcode_SWAP15 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "9e"^^xsd:hexBinary ;
+    :name "SWAP15"^^xsd:string ;
+    :stackItemsAdded 16 ;
+    :stackItemsRemoved 16 ;
+    rdfs:comment "Exchange 1st and 16th stack items."@en .
+
+:Opcode_SWAP16 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "9f"^^xsd:hexBinary ;
+    :name "SWAP16"^^xsd:string ;
+    :stackItemsAdded 17 ;
+    :stackItemsRemoved 17 ;
+    rdfs:comment "Exchange 1st and 17th stack items."@en .
+
+:Opcode_SWAP2 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "91"^^xsd:hexBinary ;
+    :name "SWAP2"^^xsd:string ;
+    :stackItemsAdded 3 ;
+    :stackItemsRemoved 3 ;
+    rdfs:comment "Exchange 1st and 3rd stack items."@en .
+
+:Opcode_SWAP3 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "92"^^xsd:hexBinary ;
+    :name "SWAP3"^^xsd:string ;
+    :stackItemsAdded 4 ;
+    :stackItemsRemoved 4 ;
+    rdfs:comment "Exchange 1st and 4th stack items."@en .
+
+:Opcode_SWAP4 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "93"^^xsd:hexBinary ;
+    :name "SWAP4"^^xsd:string ;
+    :stackItemsAdded 5 ;
+    :stackItemsRemoved 5 ;
+    rdfs:comment "Exchange 1st and 5th stack items."@en .
+
+:Opcode_SWAP5 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "94"^^xsd:hexBinary ;
+    :name "SWAP5"^^xsd:string ;
+    :stackItemsAdded 6 ;
+    :stackItemsRemoved 6 ;
+    rdfs:comment "Exchange 1st and 6th stack items."@en .
+
+:Opcode_SWAP6 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "95"^^xsd:hexBinary ;
+    :name "SWAP6"^^xsd:string ;
+    :stackItemsAdded 7 ;
+    :stackItemsRemoved 7 ;
+    rdfs:comment "Exchange 1st and 7th stack items."@en .
+
+:Opcode_SWAP7 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "96"^^xsd:hexBinary ;
+    :name "SWAP7"^^xsd:string ;
+    :stackItemsAdded 8 ;
+    :stackItemsRemoved 8 ;
+    rdfs:comment "Exchange 1st and 8th stack items."@en .
+
+:Opcode_SWAP8 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "97"^^xsd:hexBinary ;
+    :name "SWAP8"^^xsd:string ;
+    :stackItemsAdded 9 ;
+    :stackItemsRemoved 9 ;
+    rdfs:comment "Exchange 1st and 9th stack items."@en .
+
+:Opcode_SWAP9 a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "98"^^xsd:hexBinary ;
+    :name "SWAP9"^^xsd:string ;
+    :stackItemsAdded 10 ;
+    :stackItemsRemoved 10 ;
+    rdfs:comment "Exchange 1st and 10th stack items."@en .
+
+:Opcode_TIMESTAMP a :Opcode,
+        owl:NamedIndividual ;
+    :cost 2 ;
+    :hexValue "42"^^xsd:hexBinary ;
+    :name "TIMESTAMP"^^xsd:string ;
+    :stackItemsAdded 0 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Get the block's timestamp."@en .
+
+:Opcode_XOR a :Opcode,
+        owl:NamedIndividual ;
+    :cost 3 ;
+    :hexValue "18"^^xsd:hexBinary ;
+    :name "XOR"^^xsd:string ;
+    :stackItemsAdded 2 ;
+    :stackItemsRemoved 1 ;
+    rdfs:comment "Bitwise XOR operation."@en .
+
+:byteSignature a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "byte signature"@en ;
+    ethon:suggestedStringRepresentation "byteSignature" ;
+    rdfs:comment "A function can be identified by its byte signature. It is generated from the canonical signature. For example the Function `bar(uint32 x, bool y)` returns `(bool r)` has the canonical signature `bar(uint32,bool)`. The first 4 bytes of the Keccac 256 hash of this forms the byte signature of the function, in the example that would be `0xcdcd77c0`."@en ;
+    rdfs:domain :FunctionSelector ;
+    rdfs:range xsd:hexBinary ;
+    rdfs:seeAlso <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#function-selector-and-argument-encoding> ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:callsFunction a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "calls function"@en ;
+    ethon:suggestedStringRepresentation "callsFunction" ;
+    rdfs:comment "Relates a Function Call to the Function that is called by it."@en ;
+    rdfs:domain :FunctionCall ;
+    rdfs:range :Function ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:canonicalSignature a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "canonicalSignature"@en ;
+    ethon:suggestedStringRepresentation "canonicalSignature" ;
+    rdfs:comment "The signature of the function in the canonical form which is used to create the functionSelector. Example: `bar(uint32,bool)`"@en ;
+    rdfs:domain :FunctionSelector ;
+    rdfs:range xsd:string ;
+    rdfs:seeAlso "https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI" ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:cost a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "cost"@en ;
+    ethon:suggestedStringRepresentation "cost" ;
+    rdfs:comment "Specifies the amount of gas that has to be paid to execute an Opcode."@en ;
+    rdfs:domain :Opcode ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:hasFunctionSelector a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has function selector"@en ;
+    ethon:suggestedStringRepresentation "hasFunctionSelector" ;
+    rdfs:comment "Relates a function to a function selector (also \"signature\") that identifies it."@en ;
+    rdfs:domain :Function ;
+    rdfs:range :FunctionSelector ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasInput a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has Input"@en ;
+    ethon:suggestedStringRepresentation "hasInput" ;
+    rdfs:comment "Relates an Event or a Function to an Input of that Event or Function. An Event or Function may have 0 or more Inputs but an Input can only belong to a single Event or Function."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Event :Function ) ] ;
+    rdfs:range :Input ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasInputValue a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has Input Value"@en ;
+    ethon:suggestedStringRepresentation "hasInputValue" ;
+    rdfs:comment "Relates a FunctionCall or a LogEntry to an Input Value that is represented by it. For example a Function Call add(5,6) would be related to two Input Values, one for each Input to the Function."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( ethon:LogEntry :FunctionCall ) ] ;
+    rdfs:range :InputValue ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasOutput a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has Output"@en ;
+    ethon:suggestedStringRepresentation "hasOutput" ;
+    rdfs:comment "Relates a Function to an Output of that Function. A Function may have 0 or more Outputs but an Output can only belong to a single Function."@en ;
+    rdfs:domain :Function ;
+    rdfs:range :Output ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasOutputValue a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has Output Value"@en ;
+    ethon:suggestedStringRepresentation "hasOutputValue" ;
+    rdfs:comment "Relates a FunctionCall to an Output Value that is represented by it. For example a Function Call add(5,6) that returns the sum of two integers would be related to one Output Value, that contains the result of the addition."@en ;
+    rdfs:domain :FunctionCall ;
+    rdfs:range :OutputValue ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:hexValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "hex Value"@en ;
+    ethon:suggestedStringRepresentation "hexValue" ;
+    rdfs:comment "Specifies the hexadecimal code that represents an Opcode. This is the actual value used for the Opcode in byte code."@en ;
+    rdfs:domain :Opcode ;
+    rdfs:range xsd:hexBinary ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:implementsEvent a owl:ObjectProperty ;
+    rdfs:label "implements Event"@en ;
+    ethon:suggestedStringRepresentation "implementsEvent" ;
+    rdfs:comment "Relates a Contract Account to Events it implements."@en ;
+    rdfs:domain ethon:ContractAccount ;
+    rdfs:range :Event ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:implementsFunction a owl:ObjectProperty ;
+    rdfs:label "implements Function"@en ;
+    ethon:suggestedStringRepresentation "implementsFunction" ;
+    rdfs:comment "Relates a Contract Account to Functions it implements."@en ;
+    rdfs:domain ethon:ContractAccount ;
+    rdfs:range :Function ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:isAnonymous a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "is anonymous"@en ;
+    ethon:suggestedStringRepresentation "isAnonymous" ;
+    rdfs:comment "Specifies if an Event is anonymous. Anonymous Events will not store the Event signature as the LogTopic of a LogEntry."@en ;
+    rdfs:domain :Event ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:isConstant a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "is constant"@en ;
+    ethon:suggestedStringRepresentation "isConstant" ;
+    rdfs:comment "Functions with the property isConstant set to true promise to not modify the state of the blockchain. For instance, in solidity this can be achieved by a function modifier that declares the function to be constant (solidity doesn't enforce this, yet)."@en ;
+    rdfs:domain :Function ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:isIndexed a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "is indexed"@en ;
+    ethon:suggestedStringRepresentation "isIndexed" ;
+    rdfs:comment "True if the Input of an Event should be stored as a LogTopic of a LogEntry. Up to three parameters can receive this property which will cause the respective arguments to be treated as LogTopics instead of data. All non-indexed arguments will be stored in the data part of the LogEntry that represents the Event."@en ;
+    rdfs:domain :Input ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:isPayable a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "is payable"@en ;
+    ethon:suggestedStringRepresentation "isPayable" ;
+    rdfs:comment "True if a Function can receive Ether together with a FunctionCall."@en ;
+    rdfs:domain :Function ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:name a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "name"@en ;
+    ethon:suggestedStringRepresentation "name" ;
+    rdfs:comment "A property that defines the name of Functions, Events, Inputs, Outputs and Opcodes as specified in code or specification. There can be only one name for each Individual of these types."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Event :Function :Input :Opcode :Output ) ] ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:ofInput a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "of Input"@en ;
+    ethon:suggestedStringRepresentation "ofInput" ;
+    rdfs:domain :InputValue ;
+    rdfs:range :Input ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:ofOutput a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "of Output"@en ;
+    ethon:suggestedStringRepresentation "ofOutput" ;
+    rdfs:comment "Relates an Output Value to the Output it is a value of." ;
+    rdfs:domain :OutputValue ;
+    rdfs:range :Output ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:position a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "position"@en ;
+    ethon:suggestedStringRepresentation "position" ;
+    rdfs:comment "Specifies the position of the Input or Output parameter in an Event's or Function's signature."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Input :Output ) ] ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:representsEvent a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "represents Event"@en ;
+    ethon:suggestedStringRepresentation "representsEvent" ;
+    rdfs:comment "Relates a LogEntry to the Event it represents."@en ;
+    rdfs:domain ethon:LogEntry ;
+    rdfs:range :Event ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:signature a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "signature"@en ;
+    ethon:suggestedStringRepresentation "signature" ;
+    rdfs:comment "The signature of the function as specified in the source language of the contract."@en ;
+    rdfs:domain :Function ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:stackItemsAdded a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "stack items added"@en ;
+    ethon:suggestedStringRepresentation "stackItemsAdded" ;
+    rdfs:comment "Specifies the number of items added to the stack by executing an Opcode."@en ;
+    rdfs:domain :Opcode ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:stackItemsRemoved a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "stack items removed"@en ;
+    ethon:suggestedStringRepresentation "stackItemsRemoved" ;
+    rdfs:comment "Specifies the number of items removed from the stack when executing an Opcode."@en ;
+    rdfs:domain :Opcode ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:topic a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "topic"@en ;
+    ethon:suggestedStringRepresentation "topic" ;
+    rdfs:comment "An Event can be identified by its topic. It is generated from an abbreviated version of its signature. For example the Event Foo(uint32 x, bool y) has the abbreviated signature Foo(uint32,bool). The Keccac 256 hash of this forms the event topic."@en ;
+    rdfs:domain :Event ;
+    rdfs:range xsd:hexBinary ;
+    rdfs:seeAlso <https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI#events> ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:type a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "type"@en ;
+    ethon:suggestedStringRepresentation "type" ;
+    rdfs:comment "Specifies the canonical type of the Input or Output, e.g. uint32."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Input :Output ) ] ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+:usesOpcode a owl:ObjectProperty ;
+    rdfs:label "uses Opcode"@en ;
+    ethon:suggestedStringRepresentation "usesOpcode" ;
+    rdfs:comment "Relates a Contract Account to an Opcode used in the code of that Account."@en ;
+    rdfs:domain ethon:ContractAccount ;
+    rdfs:range :Opcode ;
+    rdfs:subPropertyOf :EthOnContractsObjectProperty ;
+    ns:term_status "unstable" .
+
+:value a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "value"@en ;
+    ethon:suggestedStringRepresentation "value" ;
+    rdfs:comment "The actual value of an InputValue or OutputValue. It is of the type defined in the Input or Output of the InputValue or OutputValue."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :InputValue :OutputValue ) ] ;
+    rdfs:subPropertyOf :EthOnContractsDataProperty ;
+    ns:term_status "unstable" .
+
+ethon:suggestedStringRepresentation a owl:AnnotationProperty .
+
+dc:contributor a owl:AnnotationProperty .
+
+dc:creator a owl:AnnotationProperty .
+
+dc:title a owl:AnnotationProperty .
+
+ns1:isRequiredBy a owl:ObjectProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+
+ns:term_status a owl:AnnotationProperty .
+
+:StaticFunction a owl:Class ;
+    rdfs:label "Static Function"@en ;
+    ethon:suggestedStringRepresentation "DynamicFunction" ;
+    rdfs:comment "Static Functions are Functions don't change the state of the blockchain. They can be executed on the local copy of the blockchain and it's not necessary to broadcast the call to the network. Calling a Static Function doesn't cost any gas. They are only executed by the node calling it."@en ;
+    rdfs:subClassOf :Function ;
+    ns:term_status "unstable" .
+
+ethon:Msg a owl:Class .
+
+ethon:LogEntry a owl:Class .
+
+ethon:ContractAccount a owl:Class .
+
+:FunctionCall a owl:Class ;
+    rdfs:label "Function Call"@en ;
+    ethon:suggestedStringRepresentation "FunctionCall" ;
+    rdfs:comment "Functions Calls are calls to Functions that are recorded in the blockchain. They are a subset of all Messages in a blockchain. Examples for Function Calls are Transactions (which is a sub-type of a Message) that call a Dynamic Function in a smart contract and Contract Calls that call Dynamic or Static Functions in smart contracts. Function Calls originate from either an External Account or a Contract Account and are always directed towards Contract Accounts."@en ;
+    rdfs:subClassOf ethon:Msg ;
+    ns:term_status "unstable" .
+
+:FunctionSelector a owl:Class ;
+    rdfs:label "function selector"@en ;
+    ethon:suggestedStringRepresentation "FunctionSelector" ;
+    rdfs:comment "A function selector can be represented either by a canonical text form of the function signature (e.g. `exampleFunction(bytes32)`) or by its bytes form (e.g. `0xfc13a76a`). The latter is used by the EVM to call a certain function in a contract. It is created by taking the first 4 bytes of the keccac hash of the canonical text form of the signature."@en ;
+    ns:term_status "unstable" .
+
+:InputValue a owl:Class ;
+    rdfs:label "Input Value"@en ;
+    ethon:suggestedStringRepresentation "InputValue" ;
+    rdfs:comment "Represents an Input Value of a Function Call or or a Log Entry. For example, if a smart contract has the function decryptXY(string x, bytes32 y) and the function is called in a Message, the two input values are each represented by an instance of this class. The value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Input of this Input Value."@en ;
+    ns:term_status "unstable" .
+
+:OutputValue a owl:Class ;
+    rdfs:label "Output Value"@en ;
+    ethon:suggestedStringRepresentation "OutputValue" ;
+    rdfs:comment "Represents an Output Value of a Function Call. For example, if a smart contract has the function decryptXY(string x, bytes32 y) returns(string) and the function is called in a Contract Message, the returned string is represented as an instance of this class. The return value itself is a direct data property of this class, while the data type, the position and name are data properties of the the Output of this Output Value."@en ;
+    ns:term_status "unstable" .
+
+:Output a owl:Class ;
+    rdfs:label "Output"@en ;
+    ethon:suggestedStringRepresentation "Output" ;
+    rdfs:comment "An Output represents a single return value of a Function in a smart contract. It's properties include a data type of the Output Value, a name and a position in the signature of its Function."@en ;
+    ns:term_status "unstable" .
+
+:Event a owl:Class ;
+    rdfs:label "Event"@en ;
+    ethon:suggestedStringRepresentation "Event" ;
+    rdfs:comment "Events are structures implemented in smart contracts in order to create a LogEntry. Once created they cannot be accessed from the contract but can be used from the outside, e.g. by a web application that reacts to Events in a smart contract."@en ;
+    ns:term_status "unstable" .
+
+:Input a owl:Class ;
+    rdfs:label "Input"@en ;
+    ethon:suggestedStringRepresentation "Input" ;
+    rdfs:comment """An Input represents a single input parameter of a Function or an Event. It's properties include a data type of the Input Value a name and a position in the signature of its Function or Event. 
+
+If it represents an Input of an Event it can have the boolean property isIndexed. If true, the values of this Input should be stored in a modified merkle patricia tree structure and be created as LogTopics to be easily queryable. Otherwise the value is stored in the data of a LogEntry."""@en ;
+    ns:term_status "unstable" .
+
+:Function a owl:Class ;
+    rdfs:label "function"@en ;
+    ethon:suggestedStringRepresentation "Function" ;
+    rdfs:comment "Functions are structures in smart contracts that implement functionality, just as functions or methods do in general programming. Functions can be called by Accounts (External Accounts or Contract Accounts) to execute the code stored in it. Functions can have Inputs (parameters) and Outputs (return values)."@en ;
+    ns:term_status "unstable" .
+
+:EthOnContractsObjectProperty a owl:ObjectProperty ;
+    rdfs:label "EthOn Contracts Object Property"@en ;
+    rdfs:comment "Groups all EthOn Contracts extension Object Properties"@en ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    ns:term_status "unstable" .
+
+:EthOnContractsDataProperty a owl:DatatypeProperty ;
+    rdfs:label "EthOn Contracts Data Property"@en ;
+    rdfs:comment "Groups all EthOn Contracts extension Data Properties."@en ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    ns:term_status "unstable" .
+
+:Opcode a owl:Class ;
+    rdfs:label "Opcode"@en ;
+    ethon:suggestedStringRepresentation "Opcode" ;
+    rdfs:comment "An Opcode an instruction in the instruction set of the Ethereum virtual machine. The set of existing Opcodes are defined as Individuals (instances) of this class."@en ;
+    ns:term_status "unstable" .
+

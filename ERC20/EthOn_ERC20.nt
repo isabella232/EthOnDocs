@@ -1,0 +1,326 @@
+<http://ethon.consensys.net/ERC20/changesAllowance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasAllowanceFunctionCall> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/Allowance> .
+<http://ethon.consensys.net/ERC20/providesAllowance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/transferAllowance> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://ethon.consensys.net/ERC20/from> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasFunctionCall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/totalSupply> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/ERC20Token> .
+<http://ethon.consensys.net/ERC20/decimals> <http://www.w3.org/2000/01/rdf-schema#label> "decimal units"@en .
+<http://ethon.consensys.net/ERC20/transferAllowance> <http://www.w3.org/2000/01/rdf-schema#comment> "The remaining allowance calculated based on the token transfers seen on chain."@en .
+<http://ethon.consensys.net/ERC20/providesAllowance> <http://ethon.consensys.net/suggestedStringRepresentation> "providesAllowance" .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/value> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/Allowance> <http://www.w3.org/2000/01/rdf-schema#label> "Token Allowance"@en .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://www.w3.org/2000/01/rdf-schema#label> "has Delegate"@en .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://github.com/ethereum/EIPs/issues/20> .
+<http://ethon.consensys.net/ERC20/symbol> <http://www.w3.org/2000/01/rdf-schema#comment> "The symbol of a Token."@en .
+<http://ethon.consensys.net/ERC20/hasTransferFunctionCall> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/decimals> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/DelegateTokenTransfer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ethon.consensys.net/ERC20/TokenTransfer> .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/2002/07/owl#versionInfo> "0.0.2" .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/initialAllowance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/initialAmount> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/Account> .
+<http://ethon.consensys.net/ERC20/hasTransferFunctionCall> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/Contracts/FunctionCall> .
+<http://ethon.consensys.net/ERC20/DelegateTokenTransfer> <http://www.w3.org/2002/07/owl#disjointWith> <http://ethon.consensys.net/ERC20/OwnerTokenTransfer> .
+<http://ethon.consensys.net/ERC20/> <http://purl.org/dc/elements/1.1/creator> "Johannes Pfeffer" .
+<http://ethon.consensys.net/ERC20/ERC20Token> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://github.com/ethereum/EIPs/issues/20> .
+<http://ethon.consensys.net/Account> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/name> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the Token."@en .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/hasTokenBalance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://ethon.consensys.net/ERC20/hasAllowanceFunctionCall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/TokenDelegate> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/TokenHolder> <http://ethon.consensys.net/suggestedStringRepresentation> "TokenHolder" .
+<http://ethon.consensys.net/ERC20/value> <http://ethon.consensys.net/suggestedStringRepresentation> "value" .
+<http://ethon.consensys.net/ERC20/initialBalance> <http://ethon.consensys.net/suggestedStringRepresentation> "initialBalance" .
+<http://ethon.consensys.net/ERC20/hasTokenBalance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/ERC20Token> .
+<http://ethon.consensys.net/ERC20/hasFunctionCall> <http://ethon.consensys.net/suggestedStringRepresentation> "hasFunctionCall" .
+<http://ethon.consensys.net/ERC20/TokenTransfer> <http://ethon.consensys.net/suggestedStringRepresentation> "TokenTransfer" .
+<http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> <http://www.w3.org/2000/01/rdf-schema#label> "EthOn ERC-20 Object Property"@en .
+<http://ethon.consensys.net/ERC20/hasTransfer> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/TokenTransfer> .
+<http://ethon.consensys.net/ERC20/OwnerTokenTransfer> <http://ethon.consensys.net/suggestedStringRepresentation> "OwnerTokenTransfer" .
+<http://ethon.consensys.net/ERC20/providesAllowance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/from> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a Token Transfer with the Account it originates from."@en .
+<http://ethon.consensys.net/ERC20/OwnerTokenTransfer> <http://www.w3.org/2000/01/rdf-schema#comment> "An Owner Token Transfer is a Token Transfer executed by the Account that owns the corresponding Token Balance."@en .
+<http://ethon.consensys.net/ERC20/DelegateTokenTransfer> <http://ethon.consensys.net/suggestedStringRepresentation> "DelegateTokenTransfer" .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://ethon.consensys.net/ERC20/TokenDelegate> <http://www.w3.org/2000/01/rdf-schema#comment> "A token delegate is an account that has received an allowance for a token."@en .
+<http://ethon.consensys.net/ERC20/symbol> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ethon.consensys.net/ERC20/transferAllowance> <http://ethon.consensys.net/suggestedStringRepresentation> "transferAllowance" .
+<http://ethon.consensys.net/ERC20/allowance> <http://ethon.consensys.net/suggestedStringRepresentation> "allowance" .
+<http://ethon.consensys.net/ERC20/hasTransferFunctionCall> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/TokenTransfer> .
+<http://ethon.consensys.net/Contracts/FunctionCall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/OwnerTokenTransfer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ethon.consensys.net/ERC20/TokenTransfer> .
+<http://ethon.consensys.net/ERC20/value> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/allowance> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://ethon.consensys.net/ERC20/providesAllowance> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/Allowance> .
+<http://ethon.consensys.net/ERC20/providesAllowance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/symbol> <http://www.w3.org/2000/01/rdf-schema#label> "token symbol"@en .
+<http://ethon.consensys.net/ERC20/hasAllowanceFunctionCall> <http://www.w3.org/2000/01/rdf-schema#label> "has Allowance FunctionCall"@en .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/hasTransfer> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an ERC20 token contract to one of its transfers."@en .
+<http://ethon.consensys.net/ERC20/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/balance> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://ethon.consensys.net/ERC20/TokenTransfer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ethon.consensys.net/LogEntry> .
+_:ub2bL159C30 <http://www.w3.org/2002/07/owl#unionOf> _:f2bd2aa2922894632a753fa5803dbd542b1 .
+<http://ethon.consensys.net/ERC20/hasTokenBalance> <http://ethon.consensys.net/suggestedStringRepresentation> "hasTokenBalance" .
+<http://ethon.consensys.net/ERC20/initialBalance> <http://www.w3.org/2000/01/rdf-schema#label> "initial balance"@en .
+<http://ethon.consensys.net/ERC20/DelegateTokenTransfer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/name> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/ERC20Token> .
+<http://ethon.consensys.net/ERC20/initialAllowance> <http://www.w3.org/2000/01/rdf-schema#comment> "Number of tokens that may be spent by an allowance's delegate on behalf of the tokens' owner."@en .
+<http://ethon.consensys.net/ERC20/hasApprovalLogEntry> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/LogEntry> .
+<http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/to> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/Account> .
+<http://ethon.consensys.net/ERC20/transferBalance> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://ethon.consensys.net/ERC20/transferAllowance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/TokenTransfer> .
+<http://ethon.consensys.net/ERC20/name> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/implementsToken> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://ethon.consensys.net/ERC20/TokenHolder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ethon.consensys.net/Account> .
+<http://ethon.consensys.net/ERC20/initialBalance> <http://www.w3.org/2000/01/rdf-schema#comment> "The amount of tokens this token balance has initially. The initial value is set in the token contract and cannot be derived from the token transfers."@en .
+<http://ethon.consensys.net/ERC20/hasAllowanceFunctionCall> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an allowance to the function call that set the allowance. Newer function calls overwrite the values set by older function calls."@en .
+<http://ethon.consensys.net/ERC20/transferAllowance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/> <http://purl.org/dc/elements/1.1/contributor> "Marian Oancea" .
+<http://ethon.consensys.net/ERC20/TokenBalance> <http://ethon.consensys.net/suggestedStringRepresentation> "TokenBalance" .
+<http://ethon.consensys.net/ERC20/hasApprovalLogEntry> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/TokenDelegate> .
+<http://ethon.consensys.net/ERC20/balance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/totalSupply> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://ethon.consensys.net/suggestedStringRepresentation> "byDelegate" .
+<http://ethon.consensys.net/ERC20/value> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/TokenTransfer> .
+<http://ethon.consensys.net/ERC20/hasTransfer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/ERC20Token> .
+<http://ethon.consensys.net/ERC20/initialAmount> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasTokenBalance> <http://www.w3.org/2000/01/rdf-schema#label> "has Token Balance"@en .
+<http://ethon.consensys.net/ERC20/transferAllowance> <http://www.w3.org/2000/01/rdf-schema#label> "transfer allowance"@en .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/balance> <http://ethon.consensys.net/suggestedStringRepresentation> "balance" .
+<http://ethon.consensys.net/ERC20/changesAllowance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://www.w3.org/2000/01/rdf-schema#label> "changes balance"@en .
+<http://ethon.consensys.net/ERC20/allowance> <http://www.w3.org/2000/01/rdf-schema#comment> "The remaining allowance as provided by the token contract. This value is updated with the most recent known value - but should always be considered potentially outdated."@en .
+<http://ethon.consensys.net/ERC20/ERC20Token> <http://ethon.consensys.net/suggestedStringRepresentation> "ERC20Token" .
+<http://ethon.consensys.net/ERC20/transferBalance> <http://www.w3.org/2000/01/rdf-schema#label> "transfer balance"@en .
+<http://ethon.consensys.net/ERC20/from> <http://ethon.consensys.net/suggestedStringRepresentation> "fromAccount" .
+<http://ethon.consensys.net/ERC20/hasFunctionCall> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/> <http://purl.org/dc/elements/1.1/title> "EthOn ERC-20 - An ERC-20 Extension to EthOn" .
+<http://ethon.consensys.net/ERC20/hasTransfer> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasTokenBalance> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/TokenBalance> .
+<http://ethon.consensys.net/ERC20/to> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/TokenTransfer> .
+<http://ethon.consensys.net/ERC20/changesAllowance> <http://www.w3.org/2000/01/rdf-schema#label> "changes allowance"@en .
+_:f2bd2aa2922894632a753fa5803dbd542b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ethon.consensys.net/ERC20/Allowance> .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://ethon.consensys.net/ERC20> .
+<http://ethon.consensys.net/ERC20/transferBalance> <http://ethon.consensys.net/suggestedStringRepresentation> "transferBalance" .
+<http://ethon.consensys.net/ERC20/value> <http://www.w3.org/2000/01/rdf-schema#label> "value"@en .
+<http://ethon.consensys.net/ERC20/totalSupply> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasTransferFunctionCall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/LogEntry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:f2bd2aa2922894632a753fa5803dbd542b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:f2bd2aa2922894632a753fa5803dbd542b2 .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/hasFunctionCall> <http://www.w3.org/2000/01/rdf-schema#label> "has Allowance FunctionCall"@en .
+<http://ethon.consensys.net/ERC20/TokenHolder> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/decimals> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://ethon.consensys.net/ERC20/changesAllowance> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a delegate token transfer to the allowance it changes. When a delegate spends a certain amount of a token, this amount is deducted from its balance."@en .
+<http://ethon.consensys.net/ERC20/changesAllowance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/Contracts/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/from> <http://www.w3.org/2000/01/rdf-schema#label> "from"@en .
+<http://ethon.consensys.net/ERC20/initialAmount> <http://www.w3.org/2000/01/rdf-schema#label> "initial amount"@en .
+<http://ethon.consensys.net/ERC20/decimals> <http://www.w3.org/2000/01/rdf-schema#comment> "The standard amount of decimal units that a Token uses. The most common number of decimal places is 18."@en .
+<http://ethon.consensys.net/ERC20/implementsToken> <http://ethon.consensys.net/suggestedStringRepresentation> "implementsToken" .
+<http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/decimals> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/ERC20Token> .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/symbol> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/ERC20Token> .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://ethon.consensys.net/ERC20/implementsToken> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ContractAccount> .
+<http://ethon.consensys.net/ERC20/initialAmount> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/ERC20Token> .
+<http://ethon.consensys.net/ERC20/name> <http://ethon.consensys.net/suggestedStringRepresentation> "name" .
+<http://ethon.consensys.net/ERC20/hasAllowanceFunctionCall> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/hasFunctionCall> .
+<http://ethon.consensys.net/ERC20/initialAllowance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/hasApprovalLogEntry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/Allowance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/ERC20Token> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ethon.consensys.net/ContractAccount> .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/2002/07/owl#imports> <http://ethon.consensys.net/Contracts/v0/> .
+<http://ethon.consensys.net/ERC20/to> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/TokenHolder> .
+<http://ethon.consensys.net/ERC20/providesAllowance> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a Token Balance with an Allowance it provides."@en .
+<http://ethon.consensys.net/ERC20/to> <http://ethon.consensys.net/suggestedStringRepresentation> "toAccount" .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/TokenHolder> .
+<http://ethon.consensys.net/ERC20/symbol> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://purl.org/dc/elements/1.1/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://ethon.consensys.net/ERC20/from> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+_:f2bd2aa2922894632a753fa5803dbd542b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/Account> .
+<http://ethon.consensys.net/ERC20/implementsToken> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/TokenBalance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/TokenHolder> <http://www.w3.org/2000/01/rdf-schema#comment> "A token holder is an account that is (or has ever been) owner of a token balance."@en .
+<http://ethon.consensys.net/ERC20/totalSupply> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#positiveInteger> .
+<http://ethon.consensys.net/ERC20/TokenTransfer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/initialAmount> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/initialAllowance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/Allowance> .
+<http://ethon.consensys.net/ERC20/from> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/TokenHolder> .
+<http://ethon.consensys.net/ERC20/to> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens' owner."@en .
+<http://ethon.consensys.net/ERC20/decimals> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/to> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/ERC20Token> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://theethereum.wiki/w/index.php/ERC20_Token_Standard> .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasApprovalLogEntry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/initialAllowance> <http://www.w3.org/2000/01/rdf-schema#label> "initial allowance"@en .
+<http://ethon.consensys.net/ERC20/OwnerTokenTransfer> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/DelegateTokenTransfer> <http://www.w3.org/2000/01/rdf-schema#label> "Delegate Token Transfer"@en .
+<http://ethon.consensys.net/ERC20/transferBalance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/symbol> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/TokenHolder> <http://www.w3.org/2000/01/rdf-schema#label> "token holder"@en .
+<http://ethon.consensys.net/ERC20/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "erc20" .
+<http://ethon.consensys.net/ERC20/totalSupply> <http://www.w3.org/2000/01/rdf-schema#comment> "The total supply of base units of a Token."@en .
+<http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "Groups all EthOn ERC-20 extension Data Properties."@en .
+_:f2bd2aa2922894632a753fa5803dbd542b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://ethon.consensys.net/ERC20/TokenTransfer> .
+<http://ethon.consensys.net/ERC20/allowance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasTransfer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://ethon.consensys.net/ERC20/hasTokenBalance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/ERC20Token> <http://www.w3.org/2000/01/rdf-schema#label> "ERC-20 Token"@en .
+<http://ethon.consensys.net/ERC20/balance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/TokenBalance> .
+<http://ethon.consensys.net/ERC20/initialBalance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/from> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/providesAllowance> <http://www.w3.org/2000/01/rdf-schema#label> "provides Allowance"@en .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://ethon.consensys.net/suggestedStringRepresentation> "hasOwner" .
+<http://ethon.consensys.net/ERC20/ERC20Token> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://ethon.consensys.net/ERC20/hasTransfer> <http://ethon.consensys.net/suggestedStringRepresentation> "hasTransfer" .
+<http://ethon.consensys.net/ERC20/DelegateTokenTransfer> <http://www.w3.org/2000/01/rdf-schema#comment> "A Delgate Token Transfer is a Token Transfer executed by a Spender that has been given an Allowance to spend."@en .
+<http://ethon.consensys.net/ERC20/totalSupply> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/TokenHolder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/TokenTransfer> <http://www.w3.org/2000/01/rdf-schema#label> "Token Transfer"@en .
+<http://ethon.consensys.net/ERC20/initialAllowance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/balance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasAllowanceFunctionCall> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/ERC20Token> <http://www.w3.org/2000/01/rdf-schema#comment> "A token is a fungible virtual good that can be traded. ERC-20 Tokens comply to the standard described in the Ethereum ERC-20 proposal."@en .
+<http://ethon.consensys.net/ERC20/TokenTransfer> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/TokenBalance> .
+<http://ethon.consensys.net/ERC20/OwnerTokenTransfer> <http://www.w3.org/2000/01/rdf-schema#label> "Owner Token Transfer"@en .
+<http://ethon.consensys.net/ERC20/TokenDelegate> <http://ethon.consensys.net/suggestedStringRepresentation> "TokenDelgate" .
+<http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://ethon.consensys.net/ERC20/hasTransfer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/2000/01/rdf-schema#comment> "This ontology extends EthOn with concepts that can be used to describe ERC-20 compliant Tokens." .
+<http://ethon.consensys.net/ERC20/hasApprovalLogEntry> <http://www.w3.org/2000/01/rdf-schema#label> "has Approval LogEntry"@en .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/Allowance> .
+<http://ethon.consensys.net/ERC20/transferBalance> <http://www.w3.org/2000/01/rdf-schema#comment> "A value equal to the base units of a Token calculated from all observable ERC-20 Transfer events. This doesn't necessarily represent the actual Token balance because it cannot be known what initial balances may be defined, what mechanisms may exist to generate or burn tokens and what other mechanisms that affect the token balances may be implemented in the token contract."@en .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/2002/07/owl#versionIRI> <http://ethon.consensys.net/ERC20/v0/> .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/symbol> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://www.w3.org/2000/01/rdf-schema#label> "by Delegate"@en .
+<http://ethon.consensys.net/ERC20/providesAllowance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/TokenBalance> .
+<http://ethon.consensys.net/ERC20/OwnerTokenTransfer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/initialBalance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "Groups all EthOn ERC-20 extension Object Properties"@en .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/TokenBalance> .
+<http://ethon.consensys.net/ERC20/initialAmount> <http://www.w3.org/2000/01/rdf-schema#comment> "The initial amount of Tokens that are created in the Token Contract."@en .
+<http://ethon.consensys.net/ERC20/hasTransferFunctionCall> <http://ethon.consensys.net/suggestedStringRepresentation> "hasTransferFunctionCall" .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/Account> .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasApprovalLogEntry> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a Token Approval to the LogEntry of the Event that was emitted when it was created."@en .
+<http://ethon.consensys.net/ERC20/ERC20Token> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/initialBalance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/totalSupply> <http://ethon.consensys.net/suggestedStringRepresentation> "totalSupply" .
+<http://ethon.consensys.net/ERC20/hasAllowanceFunctionCall> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/Contracts/FunctionCall> .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://github.com/ConsenSys/EthOn> .
+<http://ethon.consensys.net/ERC20/transferAllowance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/Allowance> .
+<http://ethon.consensys.net/ERC20/Allowance> <http://www.w3.org/2000/01/rdf-schema#comment> "A Token Allowance provided by a Token Balance. The Delegate Account of the Allowance can spend a fixed amount of Tokens on behalf of the token owner."@en .
+<http://ethon.consensys.net/ERC20/transferBalance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/name> <http://www.w3.org/2000/01/rdf-schema#label> "token name"@en .
+<http://ethon.consensys.net/ERC20/hasTransfer> <http://www.w3.org/2000/01/rdf-schema#label> "has Transfer"@en .
+<http://ethon.consensys.net/ERC20/TokenBalance> <http://www.w3.org/2000/01/rdf-schema#comment> "The Balance of a Token owned by an Account."@en .
+<http://ethon.consensys.net/suggestedStringRepresentation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://ethon.consensys.net/ERC20/totalSupply> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/hasAllowanceFunctionCall> <http://ethon.consensys.net/suggestedStringRepresentation> "hasAllowanceFunctionCall" .
+<http://ethon.consensys.net/ERC20/implementsToken> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/symbol> <http://ethon.consensys.net/suggestedStringRepresentation> "symbol" .
+<http://ethon.consensys.net/ERC20/hasTransferFunctionCall> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a token transfer to the function call that caused the token transfer."@en .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a token balance with the account that owns the balance."@en .
+<http://ethon.consensys.net/ERC20/changesAllowance> <http://ethon.consensys.net/suggestedStringRepresentation> "changesAllowance" .
+<http://ethon.consensys.net/ERC20/TokenBalance> <http://www.w3.org/2000/01/rdf-schema#label> "Token Balance"@en .
+<http://ethon.consensys.net/ERC20/hasTransferFunctionCall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/hasTokenBalance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/implementsToken> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/ERC20Token> .
+<http://ethon.consensys.net/ERC20/TokenDelegate> <http://www.w3.org/2000/01/rdf-schema#label> "Token Delegate"@en .
+<http://ethon.consensys.net/ERC20/implementsToken> <http://www.w3.org/2000/01/rdf-schema#label> "implements Token"@en .
+<http://ethon.consensys.net/ERC20/hasOwner> <http://www.w3.org/2000/01/rdf-schema#label> "has owner"@en .
+<http://ethon.consensys.net/ERC20/transferBalance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/transferAllowance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/Allowance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/value> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://ethon.consensys.net/ERC20/from> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/Account> .
+<http://ethon.consensys.net/ERC20/implementsToken> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/initialAmount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/hasFunctionCall> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a transfer or an allowance to the function call that caused it."@en .
+<http://ethon.consensys.net/ERC20/totalSupply> <http://www.w3.org/2000/01/rdf-schema#label> "total supply"@en .
+<http://ethon.consensys.net/ERC20/from> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/providesAllowance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://ethon.consensys.net/ERC20/hasApprovalLogEntry> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://ethon.consensys.net/ERC20/TokenBalance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/initialAllowance> <http://ethon.consensys.net/suggestedStringRepresentation> "initialAllowance" .
+<http://ethon.consensys.net/ERC20/Allowance> <http://ethon.consensys.net/suggestedStringRepresentation> "Allowance" .
+<http://ethon.consensys.net/ERC20/initialAmount> <http://ethon.consensys.net/suggestedStringRepresentation> "initialAmount" .
+<http://ethon.consensys.net/ERC20/TokenDelegate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ContractAccount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:ub2bL159C30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ethon.consensys.net/ERC20/DelegateTokenTransfer> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/hasFunctionCall> <http://www.w3.org/2000/01/rdf-schema#domain> _:ub2bL159C30 .
+<http://ethon.consensys.net/ERC20/to> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/transferBalance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/hasTransfer> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/implementsToken> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a Contract Account to the Token it implements."@en .
+<http://ethon.consensys.net/ERC20/to> <http://www.w3.org/2000/01/rdf-schema#label> "to"@en .
+<http://ethon.consensys.net/ERC20/value> <http://www.w3.org/2000/01/rdf-schema#comment> "Number of tokens transferred."@en .
+<http://ethon.consensys.net/ERC20/hasTransferFunctionCall> <http://www.w3.org/2000/01/rdf-schema#label> "has Transfer FunctionCall"@en .
+<http://ethon.consensys.net/ERC20/decimals> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/from> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/TokenTransfer> .
+<http://ethon.consensys.net/ERC20/hasTransferFunctionCall> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/hasFunctionCall> .
+<http://ethon.consensys.net/ERC20/allowance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://ethon.consensys.net/ERC20/transferBalance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/TokenBalance> .
+<http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> <http://www.w3.org/2000/01/rdf-schema#label> "EthOn ERC-20 Data Property"@en .
+<http://ethon.consensys.net/ERC20/initialAllowance> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://ethon.consensys.net/ERC20/hasFunctionCall> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/Contracts/FunctionCall> .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://ethon.consensys.net/suggestedStringRepresentation> "changesBalance" .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a Delegate Token Transfer to the Account that initiated it."@en .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://ethon.consensys.net/suggestedStringRepresentation> "hasDelegate" .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/> <http://www.w3.org/2002/07/owl#imports> <http://ethon.consensys.net/v0/> .
+<http://ethon.consensys.net/ERC20/hasFunctionCall> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/decimals> <http://ethon.consensys.net/suggestedStringRepresentation> "decimals" .
+<http://ethon.consensys.net/ERC20/hasApprovalLogEntry> <http://ethon.consensys.net/suggestedStringRepresentation> "hasApprovalLogEntry" .
+<http://ethon.consensys.net/ERC20/allowance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/balance> <http://www.w3.org/2000/01/rdf-schema#comment> "The remaining balance as provided by the token contract."@en .
+<http://ethon.consensys.net/ERC20/allowance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/Allowance> .
+<http://purl.org/dc/elements/1.1/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://ethon.consensys.net/ERC20/to> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ethon.consensys.net/ERC20/hasTokenBalance> <http://www.w3.org/2003/06/sw-vocab-status/ns#term_status> "unstable" .
+<http://ethon.consensys.net/ERC20/TokenTransfer> <http://www.w3.org/2000/01/rdf-schema#comment> "A token transfer is the record of an amount of tokens being transferred from one account to another account. If the token complies to ERC-20 the transfer is logged by a LogEntry."@en .
+<http://ethon.consensys.net/ERC20/initialAllowance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/balance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ethon.consensys.net/ERC20/name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://ethon.consensys.net/ERC20/TokenDelegate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ethon.consensys.net/Account> .
+<http://ethon.consensys.net/ERC20/name> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20DataProperty> .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a token transfer to the token balance it changes."@en .
+<http://ethon.consensys.net/ERC20/to> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a Token Transfer with the Account it is sent to."@en .
+<http://ethon.consensys.net/ERC20/balance> <http://www.w3.org/2000/01/rdf-schema#label> "balance"@en .
+<http://ethon.consensys.net/ERC20/changesBalance> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty> .
+<http://ethon.consensys.net/ERC20/hasDelegate> <http://www.w3.org/2000/01/rdf-schema#range> <http://ethon.consensys.net/ERC20/TokenDelegate> .
+<http://ethon.consensys.net/ERC20/hasTokenBalance> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a token contract to one of its balances."@en .
+<http://ethon.consensys.net/ERC20/hasApprovalLogEntry> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/Allowance> .
+<http://ethon.consensys.net/ERC20/byDelegate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ethon.consensys.net/ERC20/DelegateTokenTransfer> .
+<http://ethon.consensys.net/ERC20/allowance> <http://www.w3.org/2000/01/rdf-schema#label> "allowance"@en .
+

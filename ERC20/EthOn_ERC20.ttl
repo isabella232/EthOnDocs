@@ -1,0 +1,381 @@
+@prefix : <http://ethon.consensys.net/ERC20/> .
+@prefix Contracts: <http://ethon.consensys.net/Contracts/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ethon: <http://ethon.consensys.net/> .
+@prefix ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+Contracts:Event a owl:Class .
+
+: a owl:Ontology ;
+    dc:contributor "Marian Oancea" ;
+    dc:creator "Johannes Pfeffer" ;
+    dc:title "EthOn ERC-20 - An ERC-20 Extension to EthOn" ;
+    vann:preferredNamespacePrefix "erc20" ;
+    rdfs:comment "This ontology extends EthOn with concepts that can be used to describe ERC-20 compliant Tokens." ;
+    rdfs:seeAlso ethon:ERC20,
+        <https://github.com/ConsenSys/EthOn>,
+        <https://github.com/ethereum/EIPs/issues/20> ;
+    owl:imports <http://ethon.consensys.net/Contracts/v0/>,
+        <http://ethon.consensys.net/v0/> ;
+    owl:versionIRI <http://ethon.consensys.net/ERC20/v0/> ;
+    owl:versionInfo "0.0.2" ;
+    ns:term_status "unstable" .
+
+:allowance a owl:DatatypeProperty ;
+    rdfs:label "allowance"@en ;
+    ethon:suggestedStringRepresentation "allowance" ;
+    rdfs:comment "The remaining allowance as provided by the token contract. This value is updated with the most recent known value - but should always be considered potentially outdated."@en ;
+    rdfs:domain :Allowance ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:balance a owl:DatatypeProperty ;
+    rdfs:label "balance"@en ;
+    ethon:suggestedStringRepresentation "balance" ;
+    rdfs:comment "The remaining balance as provided by the token contract."@en ;
+    rdfs:domain :TokenBalance ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:byDelegate a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "by Delegate"@en ;
+    ethon:suggestedStringRepresentation "byDelegate" ;
+    rdfs:comment "Relates a Delegate Token Transfer to the Account that initiated it."@en ;
+    rdfs:domain :DelegateTokenTransfer ;
+    rdfs:range ethon:Account,
+        :TokenDelegate ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:changesAllowance a owl:ObjectProperty ;
+    rdfs:label "changes allowance"@en ;
+    ethon:suggestedStringRepresentation "changesAllowance" ;
+    rdfs:comment "Relates a delegate token transfer to the allowance it changes. When a delegate spends a certain amount of a token, this amount is deducted from its balance."@en ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:changesBalance a owl:FunctionalProperty,
+        owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "changes balance"@en ;
+    ethon:suggestedStringRepresentation "changesBalance" ;
+    rdfs:comment "Relates a token transfer to the token balance it changes."@en ;
+    rdfs:domain :TokenTransfer ;
+    rdfs:range :TokenBalance ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:decimals a owl:DatatypeProperty ;
+    rdfs:label "decimal units"@en ;
+    ethon:suggestedStringRepresentation "decimals" ;
+    rdfs:comment "The standard amount of decimal units that a Token uses. The most common number of decimal places is 18."@en ;
+    rdfs:domain :ERC20Token ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:from a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "from"@en ;
+    ethon:suggestedStringRepresentation "fromAccount" ;
+    rdfs:comment "Relates a Token Transfer with the Account it originates from."@en ;
+    rdfs:domain :TokenTransfer ;
+    rdfs:range ethon:Account,
+        :TokenHolder ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasAllowanceFunctionCall a owl:ObjectProperty ;
+    rdfs:label "has Allowance FunctionCall"@en ;
+    ethon:suggestedStringRepresentation "hasAllowanceFunctionCall" ;
+    rdfs:comment "Relates an allowance to the function call that set the allowance. Newer function calls overwrite the values set by older function calls."@en ;
+    rdfs:domain :Allowance ;
+    rdfs:range Contracts:FunctionCall ;
+    rdfs:subPropertyOf :hasFunctionCall ;
+    ns:term_status "unstable" .
+
+:hasApprovalLogEntry a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has Approval LogEntry"@en ;
+    ethon:suggestedStringRepresentation "hasApprovalLogEntry" ;
+    rdfs:comment "Relates a Token Approval to the LogEntry of the Event that was emitted when it was created."@en ;
+    rdfs:domain :Allowance ;
+    rdfs:range ethon:LogEntry ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasDelegate a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has Delegate"@en ;
+    ethon:suggestedStringRepresentation "hasDelegate" ;
+    rdfs:comment "Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens' owner."@en ;
+    rdfs:domain :Allowance ;
+    rdfs:range ethon:Account,
+        :TokenDelegate ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasOwner a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has owner"@en ;
+    ethon:suggestedStringRepresentation "hasOwner" ;
+    rdfs:comment "Relates a token balance with the account that owns the balance."@en ;
+    rdfs:domain :TokenBalance ;
+    rdfs:range ethon:Account,
+        :TokenHolder ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasTokenBalance a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has Token Balance"@en ;
+    ethon:suggestedStringRepresentation "hasTokenBalance" ;
+    rdfs:comment "Relates a token contract to one of its balances."@en ;
+    rdfs:domain :ERC20Token ;
+    rdfs:range :TokenBalance ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasTransfer a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has Transfer"@en ;
+    ethon:suggestedStringRepresentation "hasTransfer" ;
+    rdfs:comment "Relates an ERC20 token contract to one of its transfers."@en ;
+    rdfs:domain :ERC20Token ;
+    rdfs:range :TokenTransfer ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:hasTransferFunctionCall a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has Transfer FunctionCall"@en ;
+    ethon:suggestedStringRepresentation "hasTransferFunctionCall" ;
+    rdfs:comment "Relates a token transfer to the function call that caused the token transfer."@en ;
+    rdfs:domain :TokenTransfer ;
+    rdfs:range Contracts:FunctionCall ;
+    rdfs:subPropertyOf :hasFunctionCall ;
+    ns:term_status "unstable" .
+
+:implementsToken a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "implements Token"@en ;
+    ethon:suggestedStringRepresentation "implementsToken" ;
+    rdfs:comment "Relates a Contract Account to the Token it implements."@en ;
+    rdfs:domain ethon:ContractAccount ;
+    rdfs:range :ERC20Token ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:initialAllowance a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "initial allowance"@en ;
+    ethon:suggestedStringRepresentation "initialAllowance" ;
+    rdfs:comment "Number of tokens that may be spent by an allowance's delegate on behalf of the tokens' owner."@en ;
+    rdfs:domain :Allowance ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:initialAmount a owl:DatatypeProperty ;
+    rdfs:label "initial amount"@en ;
+    ethon:suggestedStringRepresentation "initialAmount" ;
+    rdfs:comment "The initial amount of Tokens that are created in the Token Contract."@en ;
+    rdfs:domain :ERC20Token ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:initialBalance a owl:DatatypeProperty ;
+    rdfs:label "initial balance"@en ;
+    ethon:suggestedStringRepresentation "initialBalance" ;
+    rdfs:comment "The amount of tokens this token balance has initially. The initial value is set in the token contract and cannot be derived from the token transfers."@en ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:name a owl:DatatypeProperty ;
+    rdfs:label "token name"@en ;
+    ethon:suggestedStringRepresentation "name" ;
+    rdfs:comment "The name of the Token."@en ;
+    rdfs:domain :ERC20Token ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:providesAllowance a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "provides Allowance"@en ;
+    ethon:suggestedStringRepresentation "providesAllowance" ;
+    rdfs:comment "Relates a Token Balance with an Allowance it provides."@en ;
+    rdfs:domain :TokenBalance ;
+    rdfs:range :Allowance ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:symbol a owl:DatatypeProperty ;
+    rdfs:label "token symbol"@en ;
+    ethon:suggestedStringRepresentation "symbol" ;
+    rdfs:comment "The symbol of a Token."@en ;
+    rdfs:domain :ERC20Token ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:to a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "to"@en ;
+    ethon:suggestedStringRepresentation "toAccount" ;
+    rdfs:comment "Relates a Token Transfer with the Account it is sent to."@en ;
+    rdfs:domain :TokenTransfer ;
+    rdfs:range ethon:Account,
+        :TokenHolder ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+:totalSupply a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "total supply"@en ;
+    ethon:suggestedStringRepresentation "totalSupply" ;
+    rdfs:comment "The total supply of base units of a Token."@en ;
+    rdfs:domain :ERC20Token ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:transferAllowance a owl:DatatypeProperty ;
+    rdfs:label "transfer allowance"@en ;
+    ethon:suggestedStringRepresentation "transferAllowance" ;
+    rdfs:comment "The remaining allowance calculated based on the token transfers seen on chain."@en ;
+    rdfs:domain :Allowance ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:transferBalance a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "transfer balance"@en ;
+    ethon:suggestedStringRepresentation "transferBalance" ;
+    rdfs:comment "A value equal to the base units of a Token calculated from all observable ERC-20 Transfer events. This doesn't necessarily represent the actual Token balance because it cannot be known what initial balances may be defined, what mechanisms may exist to generate or burn tokens and what other mechanisms that affect the token balances may be implemented in the token contract."@en ;
+    rdfs:domain :TokenBalance ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+:value a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "value"@en ;
+    ethon:suggestedStringRepresentation "value" ;
+    rdfs:comment "Number of tokens transferred."@en ;
+    rdfs:domain :TokenTransfer ;
+    rdfs:range xsd:integer ;
+    rdfs:subPropertyOf :EthOnERC20DataProperty ;
+    ns:term_status "unstable" .
+
+ethon:suggestedStringRepresentation a owl:AnnotationProperty .
+
+dc:contributor a owl:AnnotationProperty .
+
+dc:creator a owl:AnnotationProperty .
+
+dc:title a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+
+ns:term_status a owl:AnnotationProperty .
+
+:DelegateTokenTransfer a owl:Class ;
+    rdfs:label "Delegate Token Transfer"@en ;
+    ethon:suggestedStringRepresentation "DelegateTokenTransfer" ;
+    rdfs:comment "A Delgate Token Transfer is a Token Transfer executed by a Spender that has been given an Allowance to spend."@en ;
+    rdfs:subClassOf :TokenTransfer ;
+    owl:disjointWith :OwnerTokenTransfer ;
+    ns:term_status "unstable" .
+
+:OwnerTokenTransfer a owl:Class ;
+    rdfs:label "Owner Token Transfer"@en ;
+    ethon:suggestedStringRepresentation "OwnerTokenTransfer" ;
+    rdfs:comment "An Owner Token Transfer is a Token Transfer executed by the Account that owns the corresponding Token Balance."@en ;
+    rdfs:subClassOf :TokenTransfer ;
+    ns:term_status "unstable" .
+
+ethon:ContractAccount a owl:Class .
+
+:TokenDelegate a owl:Class ;
+    rdfs:label "Token Delegate"@en ;
+    ethon:suggestedStringRepresentation "TokenDelgate" ;
+    rdfs:comment "A token delegate is an account that has received an allowance for a token."@en ;
+    rdfs:subClassOf ethon:Account ;
+    ns:term_status "unstable" .
+
+:hasFunctionCall a owl:ObjectProperty ;
+    rdfs:label "has Allowance FunctionCall"@en ;
+    ethon:suggestedStringRepresentation "hasFunctionCall" ;
+    rdfs:comment "Relates a transfer or an allowance to the function call that caused it."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Allowance :TokenTransfer ) ] ;
+    rdfs:range Contracts:FunctionCall ;
+    rdfs:subPropertyOf :EthOnERC20ObjectProperty ;
+    ns:term_status "unstable" .
+
+ethon:LogEntry a owl:Class .
+
+Contracts:FunctionCall a owl:Class .
+
+:TokenHolder a owl:Class ;
+    rdfs:label "token holder"@en ;
+    ethon:suggestedStringRepresentation "TokenHolder" ;
+    rdfs:comment "A token holder is an account that is (or has ever been) owner of a token balance."@en ;
+    rdfs:subClassOf ethon:Account ;
+    ns:term_status "unstable" .
+
+:TokenBalance a owl:Class ;
+    rdfs:label "Token Balance"@en ;
+    ethon:suggestedStringRepresentation "TokenBalance" ;
+    rdfs:comment "The Balance of a Token owned by an Account."@en ;
+    ns:term_status "unstable" .
+
+ethon:Account a owl:Class .
+
+:Allowance a owl:Class ;
+    rdfs:label "Token Allowance"@en ;
+    ethon:suggestedStringRepresentation "Allowance" ;
+    rdfs:comment "A Token Allowance provided by a Token Balance. The Delegate Account of the Allowance can spend a fixed amount of Tokens on behalf of the token owner."@en ;
+    ns:term_status "unstable" .
+
+:ERC20Token a owl:Class ;
+    rdfs:label "ERC-20 Token"@en ;
+    ethon:suggestedStringRepresentation "ERC20Token" ;
+    rdfs:comment "A token is a fungible virtual good that can be traded. ERC-20 Tokens comply to the standard described in the Ethereum ERC-20 proposal."@en ;
+    rdfs:seeAlso <https://github.com/ethereum/EIPs/issues/20>,
+        <https://theethereum.wiki/w/index.php/ERC20_Token_Standard> ;
+    rdfs:subClassOf ethon:ContractAccount ;
+    ns:term_status "unstable" .
+
+:TokenTransfer a owl:Class ;
+    rdfs:label "Token Transfer"@en ;
+    ethon:suggestedStringRepresentation "TokenTransfer" ;
+    rdfs:comment "A token transfer is the record of an amount of tokens being transferred from one account to another account. If the token complies to ERC-20 the transfer is logged by a LogEntry."@en ;
+    rdfs:subClassOf ethon:LogEntry ;
+    ns:term_status "unstable" .
+
+:EthOnERC20DataProperty a owl:DatatypeProperty ;
+    rdfs:label "EthOn ERC-20 Data Property"@en ;
+    rdfs:comment "Groups all EthOn ERC-20 extension Data Properties."@en ;
+    rdfs:subPropertyOf owl:topDataProperty ;
+    ns:term_status "unstable" .
+
+:EthOnERC20ObjectProperty a owl:ObjectProperty ;
+    rdfs:label "EthOn ERC-20 Object Property"@en ;
+    rdfs:comment "Groups all EthOn ERC-20 extension Object Properties"@en ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    ns:term_status "unstable" .
+

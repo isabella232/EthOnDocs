@@ -1,0 +1,1870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns="http://ethon.consensys.net/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="http://ethon.consensys.net/accountNonce">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
+    <rdfs:comment xml:lang="en">A scalar value equal to the number of transactions sent from this account or, in the case of accounts with associated code, the number of contract-creations made by this account.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label xml:lang="en">Account nonce</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <suggestedStringRepresentation>accountNonce</suggestedStringRepresentation>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/AccountState"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Account">
+    <owl:hasKey rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb20"/>
+    <rdfs:label xml:lang="en">Account</rdfs:label>
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb19"/>
+    <simpleDefinition>There are two main types of accounts: external accounts (often referred to as "wallet" or simply "account") and contract accounts (usually just called "contract" or "smart contract"). An external account is what you need to use Ethereum. It is usually protected by a password. If you have the password you can send Ether from your account to another or use a contract. It has an Ethereum address (0x...) by which it is identified.</simpleDefinition>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <suggestedStringRepresentation xml:lang="en">Account</suggestedStringRepresentation>
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb18"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">*Account* is the superclass of all account types in Ethereum. All accounts are identified by an address (which, however, is derived differently for external and contract accounts) and an account state that contains the contract's balance and total message count, which is called its nonce. Contract accounts also have an associated storage state and EVM code. The address of an external account is derived from the public key of a public and private keypair, while a contract account address is a concatenation of the creator account's address and its nonce. Both contract accounts and external accounts can also be of type *protocol account* if they are specified in the Ethereum blockchain, i.e. the accounts pre-funded by the Ethereum crowdsale.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/containsCanonicalBlock">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/containsBlock"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Blockchain"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a blockchain to a canonical block that it contains. A canonical Block is the first block in a blockchain after a fork and that conforms to a new protocol variant.</rdfs:comment>
+    <rdfs:label>contains canonical Block</rdfs:label>
+    <suggestedStringRepresentation>containsCanonicalBlock</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/creates">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/to"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a create message to the contract account it creates. Note: this is a subproperty of the to property.</rdfs:comment>
+    <suggestedStringRepresentation>creates</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <rdfs:domain rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb1"/>
+    <rdfs:label xml:lang="en">creates</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txIndex">
+    <rdfs:label xml:lang="en">Transaction index</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>txIndex</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:comment xml:lang="en">The position of a transaction in a block.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb8">
+    <rdf:first rdf:resource="http://ethon.consensys.net/CreateTx"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgError">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:comment xml:lang="en">A boolean value indicating whether the message validation resulted in an error. A "true" value indicates an error.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <suggestedStringRepresentation>msgError</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:label xml:lang="en">Message error</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgGasLimit">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">A scalar value equal to the maximum amount of gas that should be used in executing this transaction. This is paid up-front, before any computation is done and may not be increased later. If used with contract messages it represents the fraction of the original transaction gas limit still available for execution of the contract message. After all resulting computations are done, excess gas is returned to the sender of the original transaction.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+    <suggestedStringRepresentation>msgGasLimit</suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label xml:lang="en">Message gas limit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/clientVersion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">runs client</rdfs:label>
+    <suggestedStringRepresentation>clientVersion</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Node"/>
+    <rdfs:comment xml:lang="en">Relates a node to a string identifying the Ethereum client version it runs. It composed of the client name (e.g. Geth) and a version identifier (e.g. v1.5.4).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/TxReceipt">
+    <rdfs:label xml:lang="en">Transaction Receipt</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>TxReceipt</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">The transaction receipt is comprised of the post-transaction-state, the cumulative gas used in the block containing the transaction receipt as of immediately after the transaction has happened, the set of logs created through execution of the transaction, the bloom filter composed from information in those logs and a boolean status code indicating success of failure of the transaction. However, in EthOn these properties are not related to the receipt but to the transaction directly, in order to simplify the resulting data model.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb44">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb45"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgInit">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/msgPayload"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Message init code</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <suggestedStringRepresentation>msgInit</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">An unlimited size byte array specifying the EVM-code for the contract account initialisation procedure.</rdfs:comment>
+    <rdfs:domain rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb12"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolVariant_Homestead">
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7.md"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-8.md"/>
+    <rdfs:seeAlso rdf:resource="https://blog.ethereum.org/2016/02/29/homestead-release/"/>
+    <rdfs:label xml:lang="en">Homestead</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-2.md"/>
+    <hasHardFork rdf:resource="http://ethon.consensys.net/ProtocolVariant_DAO"/>
+    <rdfs:comment xml:lang="en">The homestead protocol variant implemented EIP 2, 7 and 8. EIP 7 introduced a new Opcode `DELEGATECALL`.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-606.md"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/AccountObjectProperty">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Groups all EthOn account object properties</rdfs:comment>
+    <rdfs:label xml:lang="en">EthOn Account Object Property</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasAuthorBeneficiary">
+    <rdfs:comment>Relates a block to an account to which the fees from gas costs, the static mining reward and the reward for including uncles are transferred.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has author beneficiary</rdfs:label>
+    <suggestedStringRepresentation>hasAuthorBeneficiary</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/hasBeneficiary"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolVariant_DAO">
+    <rdfs:label xml:lang="en">DAO</rdfs:label>
+    <rdfs:comment xml:lang="en">The DAO protocol change was a hard fork intended to minimize the effects of the DAO heist. It allowed for all investments in the DAO to be payed back to the investers. This hard fork was highly contentious and the non-forked chain has proven to be long-lived ("Ethereum Classic").
+
+As a result of this fork block 1920000 introduced an irregular state change to transfer ~12M ETH into a recovery contract.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://blog.ethereum.org/2016/07/20/hard-fork-completed/"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <hasHardFork rdf:resource="http://ethon.consensys.net/ProtocolVariant_TangerineWhistle"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb1">
+    <owl:unionOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb2"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/cumulativeGasUsed">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <suggestedStringRepresentation>cumulativeGasUsed</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">The cumulative gas used in the block containing the transaction as of immediately after the transaction has happened.</rdfs:comment>
+    <rdfs:label xml:lang="en">cumulative gas used</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/minesFor">
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Blockchain"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Node"/>
+    <suggestedStringRepresentation>minesFor</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">mines for</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a mining node to the blockchain it mines for. Mining is the process of dedicating effort (working) to bolster one series of transactions (a block) over any other potential competitor block. It is achieved thanks to a cryptographically secure proof.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb16">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb17"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CallContractMsg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasLogEntry">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:label xml:lang="en">has Log Entry</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a transaction to a log entry it creates.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>hasLogEntry</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/LogEntry"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/LogTopic">
+    <suggestedStringRepresentation>LogTopic</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Log Topic</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">A 32-bytes long topic of a log entry. The log topics of a log entry have an order given by a topic index value.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethereum.ethstats.io/Block_2463000">
+    <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
+    <conformsTo rdf:resource="http://ethon.consensys.net/ProtocolVariant_TangerineWhistle"/>
+    <rdfs:label xml:lang="en">Block 2463000</rdfs:label>
+    <number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2463000</number>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/logTopicIndex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <suggestedStringRepresentation>logTopicIndex</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">Log Topic index</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a log topic to its index in the log entry. The log topic index defines the order of the log topics of in log entry.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethereum.ethstats.io/Block_4370000">
+    <conformsTo rdf:resource="http://ethon.consensys.net/ProtocolVariant_Byzantium"/>
+    <rdfs:label xml:lang="en">Block 4370000</rdfs:label>
+    <number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4370000</number>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb41">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb42"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CallContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/StateTransition">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">The concept of a transition in a state transition system.</rdfs:comment>
+    <suggestedStringRepresentation>StateTransition</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Transition_system"/>
+    <rdfs:label xml:lang="en">State Transition</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txV">
+    <rdfs:label xml:lang="en">Transaction v-value</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:comment xml:lang="en">The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txV specifies the sign and finiteness of the curve point. Since EIP-155 it is used to realize a replay attack protection. It is calculated in the following way: txV = CHAIN_ID * 2 + 36</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/issues/155"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>txV</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#byte"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txGasUsed">
+    <rdfs:comment xml:lang="en">The total amount of gas that was used for processing this Tx and all contract messages resulting from it. It is the sum of all msgGasUsed by this Tx and resulting contract messages.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:label xml:lang="en">Tx gas used</rdfs:label>
+    <suggestedStringRepresentation>txGasUsed</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasParentBlock">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a block to its parent in the chain. It always points to the block with a number that is decreased by one, compared to the block it originates from. The relation is asymmetric because if block A is parent to block B then block B can not be parent to block A. It is also irreflexive because a block cannot be parent to itself.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <suggestedStringRepresentation>hasParentBlock</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">has parent Block</rdfs:label>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Block"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgGasUsed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>msgGasUsed</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+    <rdfs:comment xml:lang="en">The amount of gas that was used for processing a single message, regardless of which type of message it may be.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:label xml:lang="en">Msg gas used</rdfs:label>
+    <owl:propertyDisjointWith rdf:resource="http://ethon.consensys.net/txGasUsed"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/BlockDataProperty">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">EthOn Block Data Property</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">Groups all data properties that are specific to a block. These properties are usually functional because a block can only be associated with a single instance of them.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethereum.ethstats.io/Block_2675000">
+    <conformsTo rdf:resource="http://ethon.consensys.net/ProtocolVariant_SpuriousDragon"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
+    <number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2675000</number>
+    <rdfs:label xml:lang="en">Block 2675000</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ExternalAccount">
+    <suggestedStringRepresentation xml:lang="en">ExternalAccount</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">One of the two main types of accounts on Ethereum, an external account is an account controlled by an external actor (as opposed to a contract account). The unique identifier of an external account is its address. It consists of the rightmost 160 bits of the keccak 256 hash of its public key (example: 0x1a1138875dAB9E0AC8b0fd4a37EEAC5eb26B870B). There is only one way external accounts can actively change the state of the blockchain. They can be used to send a valid transaction to the Ethereum blockchain. The transaction can be directed towards other external accounts or towards contract accounts. Since the private key is needed for sending, a valid transaction can only be created by the person or entity controlling the private key of the external account. Besides being target of transactions, external accounts can also be the target of contract messages, block beneficiary rewards, uncle beneficiary rewards or payouts of contract accounts that have self-destructed.</rdfs:comment>
+    <simpleDefinition>An Ethereum account usually controlled by a person. It is identified by an address (0x...) and a public/private key-pair.</simpleDefinition>
+    <rdfs:label xml:lang="en">Externally Controlled Account</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Uncle">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">An uncle is the direct child of the k'th generation ancestor of a block B, where 2&lt;=k&lt;=7 but not a direct ancestor of B. Uncles are blockchain blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”. The parent of an uncle is an ancestor of the inserting block, located at the tip of the blockchain.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Uncle</rdfs:label>
+    <suggestedStringRepresentation xml:lang="en">Uncle</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb32">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb33"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/ReceiptsTrie"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/">
+    <dc:contributor>Sunny Aggarwal</dc:contributor>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/White-Paper"/>
+    <owl:versionIRI rdf:resource="http://ethon.consensys.net/v0/"/>
+    <dc:contributor>Shahan Khatchadourian</dc:contributor>
+    <owl:versionInfo>0.2</owl:versionInfo>
+    <dc:contributor>Stefano Bertolo</dc:contributor>
+    <dc:contributor>Casey Detrio</dc:contributor>
+    <dc:contributor>Herman Junge</dc:contributor>
+    <vann:preferredNamespacePrefix>ethon</vann:preferredNamespacePrefix>
+    <ns:term_status>testing</ns:term_status>
+    <rdfs:comment xml:lang="en">The EthOn Ethereum ontology, described using W3C RDF Schema and the Web Ontology Language. It is closely aligned with Gavin Wood's Ethereum yellow paper.</rdfs:comment>
+    <dc:contributor>Maurycy Pietrzak</dc:contributor>
+    <dc:contributor>William E Bodell III</dc:contributor>
+    <dc:creator>Johannes Pfeffer</dc:creator>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/yellowpaper"/>
+    <dc:contributor>Alex Beregszazi</dc:contributor>
+    <rdfs:seeAlso rdf:resource="https://github.com/ConsenSys/EthOn"/>
+    <owl:imports rdf:resource="http://www.w3.org/2003/06/sw-vocab-status/ns"/>
+    <dc:title>EthOn - An Ethereum Ontology</dc:title>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dc:contributor>Marian Oancea</dc:contributor>
+    <dc:contributor>Joseph Chow</dc:contributor>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/createsPostTxState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">Relates a transaction to the global state of the system after the transaction has been executed.</rdfs:comment>
+    <rdfs:label xml:lang="en">creates post Transaction execution State</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/WorldState"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/createsState"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <suggestedStringRepresentation>createsPostTxState</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb14">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CreateTx"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasUncleBeneficiary">
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label>has uncle beneficiary</rdfs:label>
+    <suggestedStringRepresentation>hasUncleBeneficiary</suggestedStringRepresentation>
+    <rdfs:comment>Relates a block to an account to which the reward for mining an uncle is transferred.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/hasBeneficiary"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb33">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb34"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/TxTrie"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Blockchain">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">An Ethereum blockchain is a distributed database that maintains a continuously-growing list of records called *blocks* secured from tampering and revision. Each block contains a timestamp and a link to a previous block in a Merkle tree structure.</rdfs:comment>
+    <rdfs:label xml:lang="en">Ethereum Blockchain</rdfs:label>
+    <suggestedStringRepresentation>Blockchain</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasLogTopic">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/LogTopic"/>
+    <suggestedStringRepresentation>hasLogTopic</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has Log Topic</rdfs:label>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
+    <rdfs:comment xml:lang="en">Relates a log entry to a log topic.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/SelfdestructContractMsg">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Selfdestruct Contract Message</rdfs:label>
+    <suggestedStringRepresentation>SelfdestructContractMsg</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">A selfdestruct contract message is a contract message that deletes the originating contract and refunds its balance to the receiver of the message.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-6.md"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txLogsBloom">
+    <suggestedStringRepresentation>txLogsBloom</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">The bloom filter of log entries resulting from a transaction.
+
+For a more detailed description of log filters in Ethereum, see [block blogs bloom filter](http://ethon.consensys.net/blockLogsBloom).</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">transaction logs bloom filter</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:seeAlso rdf:resource="http://ethon.consensys.net/blockLogsBloom"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/EthOnAnnotationProperty">
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:comment xml:lang="en">Superclass of all EthOn specific annotation properties.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb38">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb39"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Node"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb29">
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
+    <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/logData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:label xml:lang="en">Log data</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <suggestedStringRepresentation>logData</suggestedStringRepresentation>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a log entry to its data.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/LogEntry">
+    <rdfs:comment xml:lang="en">A log entry is the result of an event in a smart contract, emitted during creation or execution of a contract account's code. It is related to the Tx it was created in, the contract account that had the event, a series of 32-bytes log topics and a number of bytes of data.</rdfs:comment>
+    <suggestedStringRepresentation>LogEntry</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Log Entry</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/partOf">
+    <suggestedStringRepresentation>partOf</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label xml:lang="en">part of</rdfs:label>
+    <ns:term_status>testing</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">This is a general relation to express part of relationships. The classic study of parts and wholes, mereology, has three axioms: 1. the part-of relation is Transitive - "parts of parts are parts of the whole" - If A is part of B and B is part of C, then A is part of C Reflexive - "Everything is part of itself" - A is part of A Antisymmetric - "Nothing is a part of its parts" - if A is part of B and A != B then B is not part of A.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://www.w3.org/2001/sw/BestPractices/OEP/SimplePartWhole/"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb5">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb6"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CallContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgCallDepth">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <suggestedStringRepresentation>msgCallDepth</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">A scalar value equal to the depth of the contract message. A contract message is represented as a call in the Ethereum EVM. This value represents the number of CALL or CREATE opcodes being executed at the time of the message execution.</rdfs:comment>
+    <rdfs:label xml:lang="en">Message call depth</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/controlsAccount">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ExternalActor"/>
+    <rdfs:label xml:lang="en">controls Account</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountObjectProperty"/>
+    <suggestedStringRepresentation>controlsAccount</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">This property connects an External Actor an Account that it controls. This means the External Actor has control over the private Key for the Account. The control is not necessarily legitimate.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/accountPublicKey">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">The public key of an external account.</rdfs:comment>
+    <rdfs:label xml:lang="en">Account public key</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <suggestedStringRepresentation>accountPublicKey</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockDifficulty">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:label xml:lang="en">Block difficulty</rdfs:label>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <suggestedStringRepresentation>blockDifficulty</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">The difficulty level of this block.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb20">
+    <rdf:first rdf:resource="http://ethon.consensys.net/address"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockSize">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:label xml:lang="en">Block size</rdfs:label>
+    <suggestedStringRepresentation>blockSize</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">The size of the block header in RLP format in bytes.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/RLP"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/createsPostBlockState">
+    <rdfs:label xml:lang="en">creates post Block execution State</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/createsState"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a block to the global state of the system after all transactions in the block have been executed.</rdfs:comment>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/WorldState"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <suggestedStringRepresentation>createsPostBlockState</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockCreationTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">This block's inception date and time.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Block creation time</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <suggestedStringRepresentation>blockCreationTime</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/createsPostMsgState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>creates post Message execution State</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/createsState"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment>Relates a message to the global state of the system after all the message has been executed.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasCurrentState">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Account"/>
+    <suggestedStringRepresentation>hasCurrentState</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/AccountState"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/hasState"/>
+    <rdfs:label>has current State</rdfs:label>
+    <rdfs:comment>This property relates an EthOn concept to its most current state.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/TxTrie">
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <suggestedStringRepresentation>TxTrie</suggestedStringRepresentation>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
+    <rdfs:comment xml:lang="en">A trie structure that stores transactions. The header of a block contains a reference to the root of a Tx trie with all transactions contained in the block.</rdfs:comment>
+    <rdfs:label xml:lang="en">Transactions Trie</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolState">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">ProtocolState</rdfs:label>
+    <suggestedStringRepresentation xml:lang="en">ProtocolState</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/AccountState"/>
+    <rdfs:comment xml:lang="en">This is a special state that can be created after specification of the protocol or any protocol change. It allows for setting balances of accounts, e.g. for prefunded accounts, creating predefined contract accounts with storage or setting any other state property as part of the protocol specification.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/triggersMsg">
+    <suggestedStringRepresentation>triggersMsg</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a message that was directed to a contract account to the contract messages that result from it. The chain of triggersMsg relations represents a call tree. The messages related to a message via triggersMsg are the direct children of it in the call tree.</rdfs:comment>
+    <rdfs:label xml:lang="en">triggers Contract Message</rdfs:label>
+    <rdfs:domain rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethereum.ethstats.io/Block_200000">
+    <conformsTo rdf:resource="http://ethon.consensys.net/ProtocolVariant_IceAge"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
+    <number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200000</number>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Block 200000</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/accountBalance">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <suggestedStringRepresentation>accountBalance</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei owned by an account at a given account state.</rdfs:comment>
+    <rdfs:label xml:lang="en">Account balance</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/AccountState"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgRefundBalance">
+    <suggestedStringRepresentation>msgRefundBalance</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">contract balance in Wei</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei that will be refunded as the result of a selfdestruct contract message.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/SelfdestructContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockBeneficiaryReward">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">Block beneficiary reward</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">The reward the beneficiary receives for mining a block. It is comprised of the base reward (5ETH), rewards for including uncles (1/32 of block reward per uncle) and the fees of the Tx in the block.</rdfs:comment>
+    <suggestedStringRepresentation>blockBenficiaryReward</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/nextTxState">
+    <suggestedStringRepresentation>nextTxState</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a post transaction state to the following post transaction state.</rdfs:comment>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/PostTxState"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">next Post Transaction State</rdfs:label>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/PostTxState"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/nextMsgState"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/containsTx">
+    <suggestedStringRepresentation>containsTx</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Tx"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:label xml:lang="en">contains Transaction</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a block to a transaction included in it. All containsTx relations of a block comprise the block's transaction list. The order of the transactions is determined by their index value. The property is inverse functional because a transaction can only be included in one block.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb17">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CallTx"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/suggestedStringRepresentation">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnAnnotationProperty"/>
+    <rdfs:comment xml:lang="en">This property relates an EthOn class with a suggested string representation. It can be used to give the term a name, e.g. in program code.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasTxTrie">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <suggestedStringRepresentation>hasTxTrie</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/TxTrie"/>
+    <rdfs:comment xml:lang="en">Relates a block to the trie that contains the data of the transactions contained in the block.</rdfs:comment>
+    <rdfs:label xml:lang="en">has transactions trie</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/State">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">The concept of a state in a generic state transition system.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Transition_system"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:disjointWith rdf:resource="http://ethon.consensys.net/StateTransition"/>
+    <rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/State_(computer_science)"/>
+    <rdfs:label xml:lang="en">State</rdfs:label>
+    <suggestedStringRepresentation>State</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgOutput">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:domain rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb15"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Message output</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>msgOutput</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">The resulting output data from a call tx or call contract message. This is the return value from the (function) call.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolVariant_IceAge">
+    <rdfs:label xml:lang="en">Ice Age</rdfs:label>
+    <rdf:type rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">The Ice Age protocol variant mainly introduced the "difficulty bomb".</rdfs:comment>
+    <hasHardFork rdf:resource="http://ethon.consensys.net/ProtocolVariant_Homestead"/>
+    <rdfs:seeAlso rdf:resource="https://blog.ethereum.org/2015/08/04/ethereum-protocol-update-1/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ContractMsg">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Msg"/>
+    <rdfs:comment xml:lang="en">A contract message is passed between a contract account and any other account (external or contract). It is the result of an execution chain originally triggered by an external eccount.</rdfs:comment>
+    <rdfs:label xml:lang="en">Contract Message</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>ContractMsg</suggestedStringRepresentation>
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb24"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/CreateContractMsg">
+    <suggestedStringRepresentation>CreateContractMsg</suggestedStringRepresentation>
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb25"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Create Contract Message</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+    <rdfs:comment xml:lang="en">A create contract message is a subtype of a contract message that results in creation of a new contract account.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolVariant">
+    <suggestedStringRepresentation>EthereumProtocolVariant</suggestedStringRepresentation>
+    <rdfs:seeAlso rdf:resource="https://ethereum.stackexchange.com/questions/13014/please-confirm-what-the-hard-forks-of-ethereum-were-and-when-they-took-place"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Ethereum Protocol Variant</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">A variant of the Ethereum protocol. Changes in the protocol result in a fork.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/uncleBeneficiaryReward">
+    <rdfs:label xml:lang="en">Uncle beneficiary reward</rdfs:label>
+    <rdfs:comment xml:lang="en">The reward the beneficiary of an uncle receives if a block includes it. The reward amount depends how far up the Uncle is in the blockchain (the number of the block in which it is included minus the uncle's number). An uncle reward is only paid if the distance is smaller than 8. For a distance of 1 the reward is 7/8 of the block reward, for a distance of 7 the reward is 1/8 of the block reward.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Uncle"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <suggestedStringRepresentation>uncleBenficiaryReward</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasFork">
+    <rdfs:label xml:lang="en">has Fork</rdfs:label>
+    <suggestedStringRepresentation>hasFork</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a protocol variant to a forked version of it. A fork in a protocol variant is a change of the rules for creating valid new blocks (the protocol).
+
+It is inverse functional because a forked protocol can have only one protocol variant it forked from. It is transitive because if a protocol C that was forked from protocol B that in turn was forked from protocol A, protocol C was also forked from protocol A. It is asymetric because if protocol A is forked from protocol B, B cannot be also forked from A. It is irreflexive because a protocol cannot be a fork of itself.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:seeAlso rdf:resource="http://vitalik.ca/general/2017/03/14/forks_and_markets.html"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/from">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a message to the account it originates from.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+    <rdfs:label xml:lang="en">from</rdfs:label>
+    <owl:inverseOf rdf:resource="http://ethon.consensys.net/sends"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+    <suggestedStringRepresentation>fromAccount</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolAccount">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Protocol Account</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <suggestedStringRepresentation xml:lang="en">PrefundedAccount</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">A protocol account is a type of account in Ethereum. Protocol accounts are specified in the Ethereum protocol, and have so far only been used to store the initial balance for users who participated in the Ethereum crowdsale. Protocol accounts could be added with any protocol change and may be either external accounts or contract accounts.</rdfs:comment>
+    <simpleDefinition>An account that was created together with the blockchain itself or during a protcol update and can have an initial balance, e.g. from the crowdfunding of the blockchain.</simpleDefinition>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb45">
+    <rdf:first rdf:resource="http://ethon.consensys.net/CallTx"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb46"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgPayload">
+    <rdfs:label xml:lang="en">Message payload</rdfs:label>
+    <suggestedStringRepresentation>msgPayload</suggestedStringRepresentation>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:comment xml:lang="en">An unlimited size byte array specifying the data payload of the message.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolVariant_Byzantium">
+    <rdfs:seeAlso rdf:resource="https://blog.ethereum.org/2017/10/12/byzantium-hf-announcement/"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/pull/206"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/pull/211"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/pull/212"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/pull/658"/>
+    <rdfs:comment xml:lang="en">The Byzantium protocol change is the first step of a the Metropolis development phase. It adds two opcodes (`REVERT` and `STATICCALL`), adds a status field to transaction receipts, introduces precompiled contracts to allow zk-snarks and other cryptography, support for variable length return values, takes uncles into account when adjusting the difficulty and delays the difficulty bomb by 1 year.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/pull/214"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/pull/669"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/issues/100"/>
+    <rdfs:label xml:lang="en">Byzantium</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/pull/198"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/pull/213"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/accountCodeHash">
+    <rdfs:label xml:lang="en">Account code hash</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
+    <rdfs:comment xml:lang="en">The immutable Keccak-256 hash of the EVM code of an account.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <suggestedStringRepresentation>accountCodeHash</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockLogsBloom">
+    <rdfs:seeAlso rdf:resource="http://ethon.consensys.net/txLogsBloom"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:comment xml:lang="en">The bloom filter of log entries resulting from the transactions in the block. 
+
+The bloom filter helps to identify blocks with logs quickly. To find the indexed log entries from a contract, only the bloom filters of all blocks, which are included in the block header have to be checked. Note that bloom filters can produce false positives but not false negatives. In other words, if the bloom filter indicates that the topic and contract have not produced any logs in a block, this information is final. If the bloom filter indicates a match, it is only a probabilistic result and has to be verified further. The transactions in the block can then be re-executed and the probabilistic match of the bloom filter can be verified.</rdfs:comment>
+    <suggestedStringRepresentation>blockLogsBloom</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">block logs bloom filter</rdfs:label>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/MessageDataProperty">
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>EthOn Message Data Property</rdfs:label>
+    <rdfs:comment xml:lang="en">Groups all EthOn message data properties.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasSoftFork">
+    <suggestedStringRepresentation>hasSoftFork</suggestedStringRepresentation>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:label xml:lang="en">has soft Fork</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/hasFork"/>
+    <rdfs:comment xml:lang="en">Relates a protocol variant to a soft forked version of it. Soft forks make the rules of a protocol variant more strict. Blocks in the soft forked chain conform to multiple protocol versions at the same time.</rdfs:comment>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/includesUncle">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:label xml:lang="en">includes Uncle</rdfs:label>
+    <suggestedStringRepresentation>includesUncle</suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Uncle"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a block to another block by including it as an uncle. Block B can be an uncle of block A if it is the direct child of the k'th generation ancestor of block B, where 2&lt;=k&lt;=7 but not a direct ancestor of block A. Uncles are blocks found by a miner, when a different miner has already found another block for the corresponding place in the blockchain. They are also known as “stale blocks”.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/NetworkObjectProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Groups all EthOn network object properties.</rdfs:comment>
+    <rdfs:label xml:lang="en">EthOn Network Object Property</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolVariant_Frontier">
+    <hasHardFork rdf:resource="http://ethon.consensys.net/ProtocolVariant_IceAge"/>
+    <rdfs:comment xml:lang="en">The original Ethereum protocol variant before any forks happened.</rdfs:comment>
+    <rdf:type rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:seeAlso rdf:resource="https://blog.ethereum.org/2015/07/22/frontier-is-coming-what-to-expect-and-how-to-prepare/"/>
+    <rdfs:label xml:lang="en">Frontier</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb10">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CallContractMsg"/>
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb11"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/logIndex">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Log index</rdfs:label>
+    <suggestedStringRepresentation>logIndex</suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:comment xml:lang="en">Relates a log entry to its index in the transaction reciept of a transaction. The log index defines the order of the log entries of a transaction.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Msg">
+    <rdfs:comment xml:lang="en">Data (as a set of bytes) and value (specified as Ether) that is passed between two accounts, either through the deterministic operation of an autonomous object (contract account) or the cryptographically secure signature of an external account.</rdfs:comment>
+    <rdfs:label xml:lang="en">Message</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <suggestedStringRepresentation>Msg</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/StateTransition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/WorldState">
+    <rdfs:comment xml:lang="en">The world state, is a mapping between addresses (160-bit identifiers) of all accounts and their states (a data structure serialised as Recursive Length Prefix). The mapping is not stored on the blockchain itself but in a modified Merkle Patricia tree. An individual state is identified by the root hash of the trie.</rdfs:comment>
+    <suggestedStringRepresentation xml:lang="en">State</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/State"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">World State</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockHeader">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:label xml:lang="en">Block header</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">Relates a block to its block header data. The block header data contains 15 pieces of information: 1. the parent hash, 2. the Uncle hash, 3. a beneficiary address, 4. a state root hash, 5. a transactions root hash, 6. a receipts root hash, 7. a log bloom filter, 8. the difficulty value, 9. the block number, 10. the gas limit of the block, 11. the gas used by all transactions in the block, 12. a scalar timestamp in unix time() format, 13. a byte array containing extra data, 14. a mix hash and 15. the block nonce. The property is functional because a block can have only exactly one block header.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <suggestedStringRepresentation>blockHeader</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb21">
+    <rdf:first rdf:resource="http://ethon.consensys.net/blockHash"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/createsState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/StateObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/StateTransition"/>
+    <suggestedStringRepresentation>createsState</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/State"/>
+    <rdfs:label xml:lang="en">creates State</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a transition to the state it creates.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/receiptsRoot">
+    <suggestedStringRepresentation>blockReceiptsRoot</suggestedStringRepresentation>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ReceiptsTrie"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:label xml:lang="en">Receipts root</rdfs:label>
+    <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the trie structure populated with the receipts of each transaction in the transactions list portion of the block.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ContractAccount">
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <simpleDefinition>A type of Ethereum account that represents a smart contract. Its behaviour is controlled by the logic in the smart contract's code. Like external accounts it is identified by an address.</simpleDefinition>
+    <rdfs:label xml:lang="en">Contract Account</rdfs:label>
+    <owl:disjointWith rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+    <rdfs:comment xml:lang="en">One of the two main types of accounts on Ethereum, a contract account is an account whose behaviour is controlled by a smart contract. Contract accounts are identified by their address which is derived from the creator account's address and nonce. A contract account has a non-empty associated EVM code. It's state data consists of the bytecode, the contract's balance and the storage state of the contract's code (for example the value of variables). A contract account can only act when it is triggered by a message. It may not create and sign transactions, but it can receive transactions from external accounts as well as send and receive contract messages, which may involve a transfer of Ether. Contract accounts can also contain events which create log entries when triggered.</rdfs:comment>
+    <suggestedStringRepresentation xml:lang="en">ContractAccount</suggestedStringRepresentation>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/CallContractMsg">
+    <rdfs:comment xml:lang="en">A call contract message is a contract message that calls a function in another contract.</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb22"/>
+    <rdfs:label xml:lang="en">Call Contract Message</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>CallContractMsg</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txNonce">
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>txNonce</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:comment xml:lang="en">A scalar value equal to the number of transactions sent by the sender.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:label xml:lang="en">Transaction nonce</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/storageRoot">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/AccountStorage"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <suggestedStringRepresentation>storageRoot</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the account (a mapping between 265-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.</rdfs:comment>
+    <rdfs:label xml:lang="en">Storage root</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/address">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">Address</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:comment xml:lang="en">A 160-bit identifier for accounts.</rdfs:comment>
+    <suggestedStringRepresentation>address</suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/LightNode">
+    <suggestedStringRepresentation>LightNode</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">A light node is a participant in an Ethereum network that does not completely do any of the following: store the complete blockchain, store the complete world state, engage in mining.</rdfs:comment>
+    <rdfs:label xml:lang="en">Ethereum Light Node</rdfs:label>
+    <simpleDefinition>A piece of software which connects to an Ethereum network in a limited capacity, i.e. a smart phone wallet app which neither mines nor downloads the full blockchain, but can still send and receive messages.</simpleDefinition>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Node"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/NetworkDataProperty">
+    <rdfs:comment xml:lang="en">Groups all EthOn network data properties.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
+    <rdfs:label xml:lang="en">EthOn Network Data Property</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb39">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethereum.ethstats.io/Block_1920000">
+    <conformsTo rdf:resource="http://ethon.consensys.net/ProtocolVariant_DAO"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
+    <number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1920000</number>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Block 1920000</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/AccountState">
+    <rdfs:comment xml:lang="en">State of an Ethereum account. It is comprised on four pieces of information: nonce, balance, storage root and code hash. The data is stored in a Merkle Patricia tree as a mapping between addresses and account states. The account state is part of the world state, as it resembles the state of exactly one account.</rdfs:comment>
+    <suggestedStringRepresentation xml:lang="en">AccountState</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Account State</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/State"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Tx">
+    <rdfs:label xml:lang="en">Transaction</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Msg"/>
+    <rdfs:comment xml:lang="en">Transactions are messages between two accounts that may transfer Ether and may contain a payload. Transactions always originate from an external account that is controlled by an external actor by means of a private key.  The execution of a transaction creates a 'transaction receipt'.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb27"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <suggestedStringRepresentation>Tx</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/BlockObjectProperty">
+    <rdfs:comment xml:lang="en">Groups all EthOn block object properties</rdfs:comment>
+    <rdfs:label xml:lang="en">EthOn Block Object Property</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasBilateralFork">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/hasFork"/>
+    <rdfs:comment xml:lang="en">Relates a protocol variant to a bilaterally forked version of it. In contrast to a hard fork, a bilateral fork may expand some rules and make others more strict. While in a hard fork rules are expanded only and all pre-fork blocks also comply to the new rules, after a bilateral hard fork, pre-fork some blocks may not be compliant to new protocol.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <suggestedStringRepresentation>hasBilateralFork</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label xml:lang="en">has bilateral Fork</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/value">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">A scalar value equal to the number of Wei to be transferred to the Message call's recipient. In the case of contract creation it is the initial balance of the contract account, paid by the sending account.</rdfs:comment>
+    <rdfs:label xml:lang="en">value in Wei</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>value</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb47">
+    <rdf:first rdf:resource="http://ethon.consensys.net/ValueTx"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb40">
+    <owl:members rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb41"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/nextBlockState">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/nextTxState"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/PostBlockState"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/PostBlockState"/>
+    <suggestedStringRepresentation>nextBlockState</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">next Post Block State</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a post block state to the following post block state.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasAccountStorage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/AccountStorage"/>
+    <rdfs:comment xml:lang="en">Relates an account to the Merkle Patricia tree that encodes its storage contents at a certain account state. This property is Functional because an account state can have only one instance of account storage and inverse functional because an account storage can have only one associated account state.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <suggestedStringRepresentation>hasAccountStorage</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">has Account Storage</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasOriginatorTx">
+    <rdfs:comment xml:lang="en">Relates a contract message to the transaction it originated from.</rdfs:comment>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:label xml:lang="en">has Originator Transaction</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <suggestedStringRepresentation>hasOriginatorTx</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/accountCode">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Account code</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <suggestedStringRepresentation>accountCode</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <rdfs:comment xml:lang="en">The immutable EVM bytecode of the contract account.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txGasPrice">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment xml:lang="en">Price in Wei to be paid per unit of gas for all computation costs incurred as a result of the execution of this transaction. This implies that contract messages resulting from the transaction pay the same gas price.</rdfs:comment>
+    <suggestedStringRepresentation>txGasPrice</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">Transaction gas price</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethereum.ethstats.io/Block_1150000">
+    <rdfs:label xml:lang="en">Block 1150000</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1150000</number>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
+    <conformsTo rdf:resource="http://ethon.consensys.net/ProtocolVariant_Homestead"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockHash">
+    <rdfs:label xml:lang="en">Block hash</rdfs:label>
+    <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the block's header, in its entierty.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <suggestedStringRepresentation>blockHash</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/PostBlockState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/PostTxState"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb2">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CreateContractMsg"/>
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/nextMsgState">
+    <suggestedStringRepresentation>nextMsgState</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/PostMsgState"/>
+    <rdfs:label xml:lang="en">next Post Message State</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a post message state to the following post message state.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/PostMsgState"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/nextState"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/to">
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:label xml:lang="en">to</rdfs:label>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+    <suggestedStringRepresentation>toAccount</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a message with the account it is sent to.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockExtraData">
+    <suggestedStringRepresentation>blockExtraData</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:comment xml:lang="en">An arbitrary byte array containing data relevant to this block. This must be 32 bytes or fewer.</rdfs:comment>
+    <rdfs:label xml:lang="en">Block extra data</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb18">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:someValuesFrom rdf:resource="http://ethon.consensys.net/AccountState"/>
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/hasState"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb13">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb14"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CreateContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/simpleDefinition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnAnnotationProperty"/>
+    <rdfs:comment xml:lang="en">This property relates an EthOn class to a definition in Simple English, intended especially for non-technical users.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ModifiedMerklePatriciaTree">
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/wiki/wiki/Patricia-Tree"/>
+    <rdfs:comment xml:lang="en">Merkle Patricia trees provide a cryptographically authenticated data structure that can be used to store all (key, value) bindings, although for the scope of this paper we are restricting keys and values to strings (to remove this restriction, just use any serialization format for other data types). They are fully deterministic, meaning that a Patricia tree with the same (key,value) bindings is guaranteed to be exactly the same down to the last byte and therefore have the same root hash, provide the holy grail of O(log(n)) efficiency for inserts, lookups and deletes, and are much easier to understand and code than more complex comparison-based alternatives like red-black trees.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Merkle Patricia Tree</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation xml:lang="en">ModifiedMerklePatriciaTree</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb3">
+    <rdf:first rdf:resource="http://ethon.consensys.net/CreateTx"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/StateObjectProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Groups all EthOn state object properties.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">EthOn State Object Property</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb36">
+    <rdf:first rdf:resource="http://ethon.consensys.net/Blockchain"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb37"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txS">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:label xml:lang="en">Transaction s-value</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>txS</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The value txS is a byte array of length 32.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolVariant_TangerineWhistle">
+    <rdf:type rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdfs:seeAlso rdf:resource="https://blog.ethereum.org/2016/10/18/faq-upcoming-ethereum-hard-fork/"/>
+    <rdfs:comment xml:lang="en">The Tangerine Whistle protocol variant resulted in a hard fork that was the first of two steps to protect the Ethereum main chain from DOS attacks. These attacks happened in September and October 2016 and resulted in large delays for transaction processing. The changes maiinly affect the gas cost for IO-heavy operations.</rdfs:comment>
+    <hasHardFork rdf:resource="http://ethon.consensys.net/ProtocolVariant_SpuriousDragon"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-150.md"/>
+    <rdfs:label xml:lang="en">Tangerine Whistle</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/stateRoot">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the state trie that represents this state.</rdfs:comment>
+    <suggestedStringRepresentation>stateRoot</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/StateDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">State root</rdfs:label>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/State"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/loggedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/LogEntry"/>
+    <suggestedStringRepresentation>loggedBy</suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">Relates a log entry to the contract account that created the log when its code was executed.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">logged by</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/transactionsRoot">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/TxTrie"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <suggestedStringRepresentation>blockTransactionsRoot</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">Transactions root</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the root node of the trie structure populated with each transaction in the transactions list portion of the block.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasReceiptsTrie">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <suggestedStringRepresentation>hasReceiptsTrie</suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
+    <rdfs:label xml:lang="en">has receipts trie</rdfs:label>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ReceiptsTrie"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:comment xml:lang="en">Relates a block to the trie that contains the block's receipt data.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ValueContractMsg">
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb28"/>
+    <rdfs:comment xml:lang="en">A Value Contract Message is a Contract Message that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Contract Message, it can have a value of 0 Ether. Value Contract Messages can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.</rdfs:comment>
+    <suggestedStringRepresentation>ValueContractMsg</suggestedStringRepresentation>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Value Contract Message</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgData">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/msgPayload"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">An unlimited size byte array specifying the input data of the call.</rdfs:comment>
+    <suggestedStringRepresentation>msgData</suggestedStringRepresentation>
+    <rdfs:domain rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb9"/>
+    <rdfs:label xml:lang="en">call data</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb28">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onClass rdf:resource="http://ethon.consensys.net/Account"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockGasLimit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">A scalar value equal to the current limit of gas expenditure per block.  Its purpose is to keep block propagation and processing time low, thereby allowing for a sufficiently decentralized network. Miners have the option to increase or decrease it every block by a certain factor.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label xml:lang="en">Block gas limit</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>blockGasLimit</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb7">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb8"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CreateContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txStatus">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">A status code for the transaction. False indicates failure (due to any operation that can cause the transaction or top-level call to revert) and true indicates success. This property was introduced with the Byzantium hard fork (EIP-658).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:label xml:lang="en">Transaction status</rdfs:label>
+    <suggestedStringRepresentation>txStatus</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/spawnsBlock">
+    <rdfs:comment xml:lang="en">Relates an Ethereum node to a valid block it has transmitted to the network. This does not specify the proofing algorithm (e.g. proof of work or proof of authority).</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Node"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <suggestedStringRepresentation>spawnsBlock</suggestedStringRepresentation>
+    <rdfs:label>spawns Block</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/msgErrorString">
+    <rdfs:comment xml:lang="en">A string informally describing an error that occured during the validation of a message. Only exists if msgError is true.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Msg"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>msgErrorString</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">Message error string</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Node">
+    <suggestedStringRepresentation>Node</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">Node</rdfs:label>
+    <simpleDefinition>A piece of software participating in the Ethereum network.</simpleDefinition>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">A participant in an Ethereum network, specifically an instance of one of the client implementations, which may be either a full node or a light node.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockGasUsed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">A scalar value equal to the total gas used by all transactions in this block.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <suggestedStringRepresentation>blockGasUsed</suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:label xml:lang="en">Block gas used</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ProtocolVariant_SpuriousDragon">
+    <rdfs:label xml:lang="en">Spurious Dragon</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-606.md"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-160.md"/>
+    <hasHardFork rdf:resource="http://ethon.consensys.net/ProtocolVariant_Byzantium"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-170.md"/>
+    <rdfs:comment xml:lang="en">The main purpose of the Spurious Dragon protocol variant was state clearing after the DOS attacks. It is the second hard fork that was done as a reaction to the DOS attacks that occured in September and October 2016. This protocol variant also includes some changes to opcode pricing and replay attack protection.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-161.md"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdfs:seeAlso rdf:resource="https://blog.ethereum.org/2016/11/18/hard-fork-no-4-spurious-dragon/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethereum.ethstats.io/EthereumFoundationMainChain">
+    <rdfs:label xml:lang="en">Ethereum Foundation main chain</rdfs:label>
+    <containsCanonicalBlock rdf:resource="http://ethereum.ethstats.io/Block_200000"/>
+    <containsCanonicalBlock rdf:resource="http://ethereum.ethstats.io/Block_1920000"/>
+    <containsCanonicalBlock rdf:resource="http://ethereum.ethstats.io/Block_2675000"/>
+    <containsCanonicalBlock rdf:resource="http://ethereum.ethstats.io/Block_1150000"/>
+    <containsCanonicalBlock rdf:resource="http://ethereum.ethstats.io/Block_2463000"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <containsCanonicalBlock rdf:resource="http://ethereum.ethstats.io/Block_4370000"/>
+    <containsCanonicalBlock rdf:resource="http://ethereum.ethstats.io/Block_0"/>
+    <rdfs:seeAlso rdf:resource="http://ethereum.ethstats.io/EthereumFoundationMainChain"/>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Blockchain"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/MessageObjectProperty">
+    <rdfs:comment xml:lang="en">Groups all EthOn message object properties.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnObjectProperty"/>
+    <rdfs:label xml:lang="en">EthOn Message Object Property</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/EthOnDataProperty">
+    <rdfs:comment xml:lang="en">Groups all data properties specific to EthOn.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">EthOn Data Property</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb24">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/from"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb46">
+    <rdf:first rdf:resource="http://ethon.consensys.net/CreateTx"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb47"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/nextState">
+    <rdfs:range rdf:resource="http://ethon.consensys.net/WorldState"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a state to the following state. In EthOn the state transition system has no branches.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/StateObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/WorldState"/>
+    <suggestedStringRepresentation>nextState</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">next State</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb34">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Uncle"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb23">
+    <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasHardFork">
+    <rdfs:comment xml:lang="en">Relates a protocol variant to a hard forked version of it. Hard forks expand the rule set of a protocol variant or change it incompatibly. Users who want to be on the hard forked chain have to update their clients.</rdfs:comment>
+    <suggestedStringRepresentation>hasSoftFork</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/hasFork"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    <rdfs:label xml:lang="en">has hard Fork</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasTransition">
+    <rdfs:comment xml:lang="en">Relates a state to a transition (i.e. a message) that creates a new state.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/StateObjectProperty"/>
+    <suggestedStringRepresentation>hasTransition</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">has Transition</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb31">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb32"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/conformsTo">
+    <suggestedStringRepresentation>conformsTo</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label>conforms to</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:comment xml:lang="en">Relates a Block to the protocol variant it conforms to.</rdfs:comment>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ProtocolVariant"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/uncleIndex">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Uncle"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">Represents the order of uncles included in a block.</rdfs:comment>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Uncle index</rdfs:label>
+    <suggestedStringRepresentation>uncleIndex</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/GenesisBlock">
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">A genesis block is the unmined, deliberately created, very first block in a blockchain. It has no predecessors, i.e. no parent block.</rdfs:comment>
+    <rdfs:label xml:lang="en">Genesis Block</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Block"/>
+    <suggestedStringRepresentation>GenesisBlock</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/logTopicData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/LogTopic"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:label xml:lang="en">Log Topic data</rdfs:label>
+    <suggestedStringRepresentation>logTopicData</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">Relates a log topic to the 32 bytes of data it contains.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/AccountDataProperty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">EthOn Account Data Property</rdfs:label>
+    <rdfs:comment xml:lang="en">Groups all data properties that are specific to an account.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasBeneficiary">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:comment xml:lang="en">Relates a block to an account to which fees or mining rewards from the successful mining of this block are transferred.</rdfs:comment>
+    <rdfs:label xml:lang="en">has beneficiary</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <suggestedStringRepresentation>hasBeneficiary</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/StateDataProperty">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/EthOnDataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/containsBlock">
+    <rdfs:comment xml:lang="en">Relates an Ethereum Blockchain to a Block that it contains.</rdfs:comment>
+    <rdfs:label>contains Block</rdfs:label>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/NetworkObjectProperty"/>
+    <suggestedStringRepresentation>containsBlock</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Blockchain"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/EthOnObjectProperty">
+    <rdfs:comment xml:lang="en">Groups all EthOn object properties</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">EthOn Object Property</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb12">
+    <owl:unionOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb13"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/totalBlockDifficulty">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">The difficulty of the total chain until this block.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Total block difficulty</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <suggestedStringRepresentation>totalBlockDifficulty</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txR">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Transaction r-value</rdfs:label>
+    <suggestedStringRepresentation>txR</suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:comment xml:lang="en">The values txV, txR and txS correspond to the signature of the transaction and are used to determine the sender of the transaction. The txR value is a Byte array of length 32.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockNonce">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <suggestedStringRepresentation>blockNonce</suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">A 64 bit hash which proves combined with the mix-hash that a sufficient amount of computation has been carried out on this block.</rdfs:comment>
+    <rdfs:label xml:lang="en">Block nonce</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/refunds">
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:comment xml:lang="en">Relates a selfdestruct contract message to the contract account it sends its refund balance to.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <suggestedStringRepresentation>refunds</suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/to"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">refunds</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Network">
+    <rdfs:label xml:lang="en">Ethereum Network</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment xml:lang="en">An Ethereum network is the group of all nodes that conform to a certain protocol variant.</rdfs:comment>
+    <suggestedStringRepresentation>Network</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/CallTx">
+    <suggestedStringRepresentation>CallTx</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Call Transaction</rdfs:label>
+    <rdfs:comment xml:lang="en">A type of transaction that is directed towards a contract account and calls a method in the contract's code.</rdfs:comment>
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb23"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb42">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb43"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CreateContractMsg"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ExternalActor">
+    <rdfs:comment xml:lang="en">A person or other entity able to interface with an Ethereum node. An external actor controls the private-public keypair of one or more external accounts. It can change the state of the blockchain by sending signed and valid transactions. Without using a keypair, external actors can also inspect and read from the blockchain and its state.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <simpleDefinition>A person or other entity controlling one or more external accounts, which can interact with Ethereum by signing transactions with a public-private keypair.</simpleDefinition>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">External Actor</rdfs:label>
+    <suggestedStringRepresentation xml:lang="en">ExternalActor</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/number">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">A scalar value equal to the number of ancestor blocks. The genesis block has a number of zero.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:label xml:lang="en">Block number</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <suggestedStringRepresentation>number</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/txHash">
+    <rdfs:label xml:lang="en">Tx hash</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>txHash</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:comment xml:lang="en">The Keccak 256-bit hash of the transaction</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageDataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Block">
+    <ns:term_status>unstable</ns:term_status>
+    <simpleDefinition>A block is an entry in a blockchain. It contains a series of transactions as well as a cryptographic hash linking it to the previous block in the chain.</simpleDefinition>
+    <rdfs:comment xml:lang="en">A block is the basic element of a 'blockchain'. It functions as an entry in a distributed ledger, recording a series of transactions together with a reference to the previous block. A block is chained to its preceeding block by a cryptographic hash of its contents as a means of reference. Blocks contain an identifier for the final state after all transactions contained in it are validated. There is a consensus mechanism that provides incentives for nodes adding new blocks to the chain ("miners" in the Proof of Work protocol used by the main Ethereum network) that comply with the rules of Ethereum by issuing newly generated tokens ('Ether') to an account specified by the block's author.</rdfs:comment>
+    <suggestedStringRepresentation xml:lang="en">Block</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">Block</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:hasKey rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb21"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/StateTransition"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/blockMixHash">
+    <suggestedStringRepresentation>blockMixHash</suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">Block mix hash</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/BlockDataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:comment xml:lang="en">A 256-bit hash which proves combined with the nonce that a sufficient amount of computation has been carried out on this block.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasState">
+    <rdfs:range rdf:resource="http://ethon.consensys.net/AccountState"/>
+    <suggestedStringRepresentation>hasState</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:comment xml:lang="en">This property relates an EthOn concept to a state. It is inverse functional because a state can only belong to one single EthOn concept.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/StateObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:label xml:lang="en">has state</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/accountBalancePrefunded">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/AccountDataProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>accountBalancePrefunded</suggestedStringRepresentation>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ProtocolAccount"/>
+    <rdfs:comment xml:lang="en">The amount of Wei an account was prefunded with in a protocol variant. In the case that an account receives multiple prefunds in multiple protocol variants, the amounts are summed. In contrast to the regular account balance it is a property of the account itself and not of its state.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">Account balance prefunded</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb19">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/address"/>
+    <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb43">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/ValueContractMsg"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb15">
+    <owl:unionOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb16"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/FullNode">
+    <suggestedStringRepresentation>FullNode</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">A full node is a participant in an Ethereum network that keeps a record of the full blockchain, the full state and may engage in mining.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Node"/>
+    <simpleDefinition>A piece of software which connects fully to an Ethereum network, storing its complete history and having the ability to submit new blocks to the blockchain (i.e. through mining).</simpleDefinition>
+    <rdfs:label xml:lang="en">Ethereum Full Node</rdfs:label>
+    <owl:disjointWith rdf:resource="http://ethon.consensys.net/LightNode"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb35">
+    <owl:members rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb36"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb6">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb7"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CallTx"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb25">
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/creates"/>
+    <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/sends">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:label xml:lang="en">sends</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a an account to a message it sends.</rdfs:comment>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Msg"/>
+    <suggestedStringRepresentation>sends</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/hasReceipt">
+    <rdfs:label xml:lang="en">has transaction receipt</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/MessageObjectProperty"/>
+    <suggestedStringRepresentation>hasTransactionReceipt</suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/TxReceipt"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/Tx"/>
+    <rdfs:comment xml:lang="en">Relates a transaction to its receipt.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb27">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/from"/>
+    <owl:onClass rdf:resource="http://ethon.consensys.net/ExternalAccount"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb11">
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/CallTx"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/CreateTx">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Tx"/>
+    <ns:term_status>unstable</ns:term_status>
+    <suggestedStringRepresentation>CreateTx</suggestedStringRepresentation>
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb26"/>
+    <rdfs:comment xml:lang="en">A type of transaction that results in creation of a new contract account.</rdfs:comment>
+    <rdfs:label xml:lang="en">Create Transaction</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb22">
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/to"/>
+    <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ReceiptsTrie">
+    <rdfs:label xml:lang="en">Receipts Trie</rdfs:label>
+    <rdfs:comment xml:lang="en">A trie structure that stores transaction receipts. Each block has a reference to the root hash of a receipts trie that stores the receipts of the transactions included in the block.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
+    <suggestedStringRepresentation>ReceiptsTrie</suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ValueTx">
+    <rdfs:subClassOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb29"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Value Transaction</rdfs:label>
+    <rdfs:comment xml:lang="en">A Value Transaction is a Transaction that does not call a function in a smart contract and doesn't create a new smart contract. Even though it is called "value" Transaction, Transactions with a value of 0 Ether can be Value Transaction. Value Transactions can have a payload as long as that payload doesn't trigger the execution of a function in a smart contract.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Tx"/>
+    <suggestedStringRepresentation>ValueTx</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb37">
+    <rdf:rest rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb38"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    <rdf:first rdf:resource="http://ethon.consensys.net/Network"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb26">
+    <owl:onClass rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://ethon.consensys.net/creates"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethereum.ethstats.io/Block_0">
+    <conformsTo rdf:resource="http://ethon.consensys.net/ProtocolVariant_Frontier"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <number rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</number>
+    <rdf:type rdf:resource="http://ethon.consensys.net/Block"/>
+    <rdfs:label xml:lang="en">Block 0</rdfs:label>
+    <rdf:type rdf:resource="http://ethon.consensys.net/GenesisBlock"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/AccountStorage">
+    <rdfs:label xml:lang="en">Storage</rdfs:label>
+    <rdfs:comment xml:lang="en">The account storage is part of the account state and it contains contains the values of all variables defined in the contract's code at a certain point in time. Usually Ethereum clients implement this structure as a Merkle Patricia Tree. Whenever any of the contract's variables are changed a new state is created.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <simpleDefinition>A data structure which contains the current storage state of a smart contract, i.e. the total supply of an ERC20 token and the mapping of account addresses to current balances.</simpleDefinition>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ModifiedMerklePatriciaTree"/>
+    <suggestedStringRepresentation xml:lang="en">AccountStorage</suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent">
+    <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb9">
+    <owl:unionOf rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb10"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb30">
+    <owl:members rdf:nodeID="f34b8fd1e2bde4baab9b61aa8c849696eb31"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/PostMsgState">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/WorldState"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/PostTxState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/PostMsgState"/>
+  </rdf:Description>
+</rdf:RDF>

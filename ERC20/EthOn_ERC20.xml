@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:ethon="http://ethon.consensys.net/"
+   xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/changesAllowance">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">changes allowance</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates a delegate token transfer to the allowance it changes. When a delegate spends a certain amount of a token, this amount is deducted from its balance.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>changesAllowance</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/hasAllowanceFunctionCall">
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/FunctionCall"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
+    <rdfs:comment xml:lang="en">Relates an allowance to the function call that set the allowance. Newer function calls overwrite the values set by older function calls.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>hasAllowanceFunctionCall</ethon:suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">has Allowance FunctionCall</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/hasFunctionCall"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/providesAllowance">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenBalance"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a Token Balance with an Allowance it provides.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>providesAllowance</ethon:suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:label xml:lang="en">provides Allowance</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/transferAllowance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
+    <rdfs:comment xml:lang="en">The remaining allowance calculated based on the token transfers seen on chain.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>transferAllowance</ethon:suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label xml:lang="en">transfer allowance</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/from">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:comment xml:lang="en">Relates a Token Transfer with the Account it originates from.</rdfs:comment>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/TokenHolder"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">from</rdfs:label>
+    <ethon:suggestedStringRepresentation>fromAccount</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/hasFunctionCall">
+    <rdfs:domain rdf:nodeID="ub2bL159C30"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">has Allowance FunctionCall</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a transfer or an allowance to the function call that caused it.</rdfs:comment>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/FunctionCall"/>
+    <ethon:suggestedStringRepresentation>hasFunctionCall</ethon:suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/totalSupply">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/ERC20Token"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">total supply</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdfs:comment xml:lang="en">The total supply of base units of a Token.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>totalSupply</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/decimals">
+    <rdfs:comment xml:lang="en">The standard amount of decimal units that a Token uses. The most common number of decimal places is 18.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/ERC20Token"/>
+    <rdfs:label xml:lang="en">decimal units</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <ns:term_status>unstable</ns:term_status>
+    <ethon:suggestedStringRepresentation>decimals</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/changesBalance">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a token transfer to the token balance it changes.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <rdfs:label xml:lang="en">changes balance</rdfs:label>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/TokenBalance"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
+    <ethon:suggestedStringRepresentation>changesBalance</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/value">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdfs:label xml:lang="en">value</rdfs:label>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
+    <ethon:suggestedStringRepresentation>value</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">Number of tokens transferred.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/Allowance">
+    <ethon:suggestedStringRepresentation>Allowance</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">A Token Allowance provided by a Token Balance. The Delegate Account of the Allowance can spend a fixed amount of Tokens on behalf of the token owner.</rdfs:comment>
+    <rdfs:label xml:lang="en">Token Allowance</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/hasDelegate">
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a Token Allowance to the Account that has been delegate to spend it on behalf of the Tokens' owner.</rdfs:comment>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:label xml:lang="en">has Delegate</rdfs:label>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/TokenDelegate"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <ethon:suggestedStringRepresentation>hasDelegate</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/">
+    <ns:term_status>unstable</ns:term_status>
+    <owl:versionIRI rdf:resource="http://ethon.consensys.net/ERC20/v0/"/>
+    <dc:contributor>Marian Oancea</dc:contributor>
+    <owl:imports rdf:resource="http://ethon.consensys.net/v0/"/>
+    <dc:title>EthOn ERC-20 - An ERC-20 Extension to EthOn</dc:title>
+    <owl:imports rdf:resource="http://ethon.consensys.net/Contracts/v0/"/>
+    <rdfs:comment>This ontology extends EthOn with concepts that can be used to describe ERC-20 compliant Tokens.</rdfs:comment>
+    <dc:creator>Johannes Pfeffer</dc:creator>
+    <owl:versionInfo>0.0.2</owl:versionInfo>
+    <rdfs:seeAlso rdf:resource="http://ethon.consensys.net/ERC20"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ConsenSys/EthOn"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/issues/20"/>
+    <vann:preferredNamespacePrefix>erc20</vann:preferredNamespacePrefix>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/symbol">
+    <ethon:suggestedStringRepresentation>symbol</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/ERC20Token"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">The symbol of a Token.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdfs:label xml:lang="en">token symbol</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/hasTransferFunctionCall">
+    <ethon:suggestedStringRepresentation>hasTransferFunctionCall</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">Relates a token transfer to the function call that caused the token transfer.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/hasFunctionCall"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Contracts/FunctionCall"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
+    <rdfs:label xml:lang="en">has Transfer FunctionCall</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/DelegateTokenTransfer">
+    <rdfs:label xml:lang="en">Delegate Token Transfer</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <ethon:suggestedStringRepresentation>DelegateTokenTransfer</ethon:suggestedStringRepresentation>
+    <owl:disjointWith rdf:resource="http://ethon.consensys.net/ERC20/OwnerTokenTransfer"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
+    <rdfs:comment xml:lang="en">A Delgate Token Transfer is a Token Transfer executed by a Spender that has been given an Allowance to spend.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/initialAllowance">
+    <rdfs:label xml:lang="en">initial allowance</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <ethon:suggestedStringRepresentation>initialAllowance</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">Number of tokens that may be spent by an allowance's delegate on behalf of the tokens' owner.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/initialAmount">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ethon:suggestedStringRepresentation>initialAmount</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">The initial amount of Tokens that are created in the Token Contract.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/ERC20Token"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:label xml:lang="en">initial amount</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/byDelegate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:label xml:lang="en">by Delegate</rdfs:label>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/TokenDelegate"/>
+    <ethon:suggestedStringRepresentation>byDelegate</ethon:suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/DelegateTokenTransfer"/>
+    <rdfs:comment xml:lang="en">Relates a Delegate Token Transfer to the Account that initiated it.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/ERC20Token">
+    <rdfs:label xml:lang="en">ERC-20 Token</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/ethereum/EIPs/issues/20"/>
+    <ethon:suggestedStringRepresentation>ERC20Token</ethon:suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">A token is a fungible virtual good that can be traded. ERC-20 Tokens comply to the standard described in the Ethereum ERC-20 proposal.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://theethereum.wiki/w/index.php/ERC20_Token_Standard"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Account">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/name">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/ERC20Token"/>
+    <rdfs:label xml:lang="en">token name</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">The name of the Token.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>name</ethon:suggestedStringRepresentation>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/hasTokenBalance">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <rdfs:label xml:lang="en">has Token Balance</rdfs:label>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/TokenBalance"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a token contract to one of its balances.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/ERC20Token"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <ethon:suggestedStringRepresentation>hasTokenBalance</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/TokenDelegate">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:label xml:lang="en">Token Delegate</rdfs:label>
+    <ethon:suggestedStringRepresentation>TokenDelgate</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">A token delegate is an account that has received an allowance for a token.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/TokenHolder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/Account"/>
+    <ns:term_status>unstable</ns:term_status>
+    <ethon:suggestedStringRepresentation>TokenHolder</ethon:suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">token holder</rdfs:label>
+    <rdfs:comment xml:lang="en">A token holder is an account that is (or has ever been) owner of a token balance.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/initialBalance">
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdfs:label xml:lang="en">initial balance</rdfs:label>
+    <rdfs:comment xml:lang="en">The amount of tokens this token balance has initially. The initial value is set in the token contract and cannot be derived from the token transfers.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>initialBalance</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/TokenTransfer">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/LogEntry"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <ethon:suggestedStringRepresentation>TokenTransfer</ethon:suggestedStringRepresentation>
+    <rdfs:comment xml:lang="en">A token transfer is the record of an amount of tokens being transferred from one account to another account. If the token complies to ERC-20 the transfer is logged by a LogEntry.</rdfs:comment>
+    <rdfs:label xml:lang="en">Token Transfer</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdfs:label xml:lang="en">EthOn ERC-20 Object Property</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Groups all EthOn ERC-20 extension Object Properties</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/hasTransfer">
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/ERC20Token"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <rdfs:label xml:lang="en">has Transfer</rdfs:label>
+    <rdfs:comment xml:lang="en">Relates an ERC20 token contract to one of its transfers.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>hasTransfer</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/OwnerTokenTransfer">
+    <rdfs:subClassOf rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
+    <rdfs:label xml:lang="en">Owner Token Transfer</rdfs:label>
+    <rdfs:comment xml:lang="en">An Owner Token Transfer is a Token Transfer executed by the Account that owns the corresponding Token Balance.</rdfs:comment>
+    <ethon:suggestedStringRepresentation>OwnerTokenTransfer</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/allowance">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">allowance</rdfs:label>
+    <ethon:suggestedStringRepresentation>allowance</ethon:suggestedStringRepresentation>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">The remaining allowance as provided by the token contract. This value is updated with the most recent known value - but should always be considered potentially outdated.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/FunctionCall">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/balance">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenBalance"/>
+    <ethon:suggestedStringRepresentation>balance</ethon:suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">balance</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">The remaining balance as provided by the token contract.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ub2bL159C30">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <owl:unionOf rdf:nodeID="f2bd2aa2922894632a753fa5803dbd542b1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/hasApprovalLogEntry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/LogEntry"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a Token Approval to the LogEntry of the Event that was emitted when it was created.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
+    <rdfs:label xml:lang="en">has Approval LogEntry</rdfs:label>
+    <ethon:suggestedStringRepresentation>hasApprovalLogEntry</ethon:suggestedStringRepresentation>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty">
+    <rdfs:comment xml:lang="en">Groups all EthOn ERC-20 extension Data Properties.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:label xml:lang="en">EthOn ERC-20 Data Property</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/to">
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment xml:lang="en">Relates a Token Transfer with the Account it is sent to.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/TokenHolder"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <ethon:suggestedStringRepresentation>toAccount</ethon:suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">to</rdfs:label>
+    <ns:term_status>unstable</ns:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/transferBalance">
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenBalance"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20DataProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <ethon:suggestedStringRepresentation>transferBalance</ethon:suggestedStringRepresentation>
+    <rdfs:label xml:lang="en">transfer balance</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">A value equal to the base units of a Token calculated from all observable ERC-20 Transfer events. This doesn't necessarily represent the actual Token balance because it cannot be known what initial balances may be defined, what mechanisms may exist to generate or burn tokens and what other mechanisms that affect the token balances may be implemented in the token contract.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/implementsToken">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <ethon:suggestedStringRepresentation>implementsToken</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/ERC20Token"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ContractAccount"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:comment xml:lang="en">Relates a Contract Account to the Token it implements.</rdfs:comment>
+    <rdfs:label xml:lang="en">implements Token</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/TokenBalance">
+    <rdfs:comment xml:lang="en">The Balance of a Token owned by an Account.</rdfs:comment>
+    <rdfs:label xml:lang="en">Token Balance</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <ns:term_status>unstable</ns:term_status>
+    <ethon:suggestedStringRepresentation>TokenBalance</ethon:suggestedStringRepresentation>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f2bd2aa2922894632a753fa5803dbd542b1">
+    <rdf:first rdf:resource="http://ethon.consensys.net/ERC20/Allowance"/>
+    <rdf:rest rdf:nodeID="f2bd2aa2922894632a753fa5803dbd542b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ERC20/hasOwner">
+    <rdfs:range rdf:resource="http://ethon.consensys.net/Account"/>
+    <rdfs:comment xml:lang="en">Relates a token balance with the account that owns the balance.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <ns:term_status>unstable</ns:term_status>
+    <rdfs:range rdf:resource="http://ethon.consensys.net/ERC20/TokenHolder"/>
+    <rdfs:label xml:lang="en">has owner</rdfs:label>
+    <ethon:suggestedStringRepresentation>hasOwner</ethon:suggestedStringRepresentation>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:subPropertyOf rdf:resource="http://ethon.consensys.net/ERC20/EthOnERC20ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://ethon.consensys.net/ERC20/TokenBalance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/LogEntry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/Contracts/Event">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="f2bd2aa2922894632a753fa5803dbd542b2">
+    <rdf:first rdf:resource="http://ethon.consensys.net/ERC20/TokenTransfer"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/suggestedStringRepresentation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://ethon.consensys.net/ContractAccount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+</rdf:RDF>
